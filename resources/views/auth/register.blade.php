@@ -67,6 +67,7 @@
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label" for="register-password1">{{ __('Confirm Password') }}</label>
+                                        
                                         <div class="input-group input-group-merge form-password-toggle">
 
                                          <input id="password-confirm" type="password" class="form-control form-control-merge" name="password_confirmation" required autocomplete="new-password" placeholder="············" aria-describedby="register-password1" tabindex="5" >
@@ -74,7 +75,22 @@
                                             <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
-                                   
+                                     <div class="mb-1">
+                                        <label class="form-label" for="register-password1">{{ __('Captcha') }}</label>
+                                        <div class="input-group { $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+
+                                            {!! app('captcha')->display() !!}
+                                            @if ($errors->has('g-recaptcha-response'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                                </span>
+                                            @endif
+                                        
+                                        </div>
+
+                                    </div>
+
+                                    
                                  
                                 <button type="submit" class="btn btn-primary w-100" tabindex="6">
                                   {{ __('Sign up') }}

@@ -86,6 +86,21 @@
                                         </div>
                                     </div>
                                     <div class="mb-1">
+                                        <label class="form-label" for="register-password1">{{ __('Captcha') }}</label>
+                                        <div class="input-group { $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+
+                                            {!! app('captcha')->display() !!}
+                                            @if ($errors->has('g-recaptcha-response'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                                </span>
+                                            @endif
+                                        
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div class="mb-1">
                                         <div class="form-check">
                                             
                                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} tabindex="3">
@@ -95,6 +110,9 @@
                                             </label>
                                         </div>
                                     </div>
+
+                                    
+
                                     
                                 <button type="submit" class="btn btn-primary w-100" tabindex="4">
                                     {{ __('Sign in') }}

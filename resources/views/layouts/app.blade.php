@@ -72,6 +72,7 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('resources/app-assets/js/scripts/pages/page-auth-login.js') }}" defer></script>
     <!-- END: Page JS-->
+     {!! NoCaptcha::renderJs() !!}
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
         $(window).on('load', function() {
