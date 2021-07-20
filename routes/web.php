@@ -13,4 +13,3 @@ Route::view('/organizition-list', 'frontend.organizition.organization_list', ["t
 // Farmer
 Route::view('/edit-farmer', 'frontend.farmer.edit_farmer', ["title" => 'Agribridge - Farmet Edit User'])->name("edit_farmer");
 Route::view('/view-farmer-detail', 'frontend.farmer.view_farmer_details', ["title" => 'Agribridge - Farmet Detail'])->name("view_farmer_detail");
-
