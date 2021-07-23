@@ -68,17 +68,9 @@
                             <h2 class="card_title">Organization Details</h2>
                             <div class="card card-congratulation-medal">
                                 <div class="card-body a-custom-tab">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="pill" href="#overview" aria-expanded="true">Overview</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#org" aria-expanded="false">Org Structure</a>
-                                        </li>
-                                    </ul>
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="overview" aria-labelledby="home-tab" aria-expanded="true">
-                                            <form>
+                                            <form id="organizition_detail">
                                                 <div class="d-flex mb-2">
                                                     <img src="{{asset('assets/app-assets/images/avatars/2.png')}}" alt="users avatar" class="user-avatar users-avatar-shadow  me-2 my-25 cursor-pointer" height="90" width="90" />
                                                     <div class="mt-50">
@@ -86,7 +78,7 @@
                                                         <div class="col-12 d-flex mt-1 px-0">
                                                             <label class="btn btn-primary me-75 mb-0" for="change-picture">
                                                                 <span class="d-none d-sm-block">Upload Logo</span>
-                                                                <input class="form-control" type="file" id="change-picture" hidden accept="image/png, image/jpeg, image/jpg" />
+                                                                <input class="form-control" type="file" name="org_logo_url" id="change-picture" hidden accept="image/png, image/jpeg, image/jpg" />
                                                                 <span class="d-block d-sm-none">
                                                                     <i class="me-0" data-feather="edit"></i>
                                                                 </span>
@@ -102,44 +94,45 @@
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">Organization Name</label>
-                                                            <input type="text" class="form-control" placeholder="Gourmet Popcornica">
+                                                            <input type="text" name="org_name" class="form-control" placeholder="Gourmet Popcornica">
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">Organization ID</label>
-                                                            <input type="text" class="form-control" placeholder="444589">
+                                                            <input type="text" name="parent_org_id" class="form-control" placeholder="444589">
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">Organization Type</label>
-                                                            <select class="form-select">
-                                                                <option>Cluster Management</option>
+                                                            <select class="form-select" name="org_type">
+                                                                <option value="2">Cluster Management</option>
+                                                                <option value="3">Management</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-12 col-md-12 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">Address</label>
-                                                            <input type="text" class="form-control" placeholder="234, xyz village">
+                                                            <input type="text" name="org_address" class="form-control" placeholder="234, xyz village">
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">Country</label>
-                                                            <select class="form-select">
-                                                                <option value="AF">Afghanistan</option>
-                                                                <option value="AX">Åland Islands</option>
-                                                                <option value="AL">Albania</option>
-                                                                <option value="DZ">Algeria</option>
-                                                                <option value="AS">American Samoa</option>
-                                                                <option value="AD">Andorra</option>
-                                                                <option value="BS">Bahamas</option>
-                                                                <option value="BH">Bahrain</option>
-                                                                <option value="BD">Bangladesh</option>
-                                                                <option value="BB">Barbados</option>
-                                                                <option value="BY">Belarus</option>
+                                                            <select class="form-select" name="org_country">
+                                                                <option value="1">Afghanistan</option>
+                                                                <option value="2">Åland Islands</option>
+                                                                <option value="3">Albania</option>
+                                                                <option value="4">Algeria</option>
+                                                                <option value="5">American Samoa</option>
+                                                                <option value="6">Andorra</option>
+                                                                <option value="7">Bahamas</option>
+                                                                <option value="7">Bahrain</option>
+                                                                <option value="8">Bangladesh</option>
+                                                                <option value="9">Barbados</option>
+                                                                <option value="10">Belarus</option>
                                                                 <option>India</option>
                                                             </select>
                                                         </fieldset>
@@ -147,94 +140,50 @@
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">State</label>
-                                                            <select class="form-select">
-                                                                <option>Telangana</option>
+                                                            <select class="form-select" name="org_state">
+                                                                <option value="1">Telangana</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">District</label>
-                                                            <select class="form-select">
-                                                                <option>Siddipet</option>
+                                                            <select class="form-select" name="org_district">
+                                                                <option value="1">Siddipet</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">Taluka</label>
-                                                            <select class="form-select">
-                                                                <option>Siddipet</option>
+                                                            <select class="form-select" name="org_taluka">
+                                                                <option value="1">Siddipet</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">Village</label>
-                                                            <select class="form-select">
-                                                                <option>Siddipet</option>
+                                                            <select class="form-select" name="org_village">
+                                                                <option value="1">Siddipet</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="">Pincode</label>
-                                                            <input type="text" class="form-control" placeholder="500011">
+                                                            <input type="text" name="org_pincode" class="form-control" placeholder="500011">
                                                         </fieldset>
                                                     </div>
 
                                                     <div class="col-12 mt-5">
-                                                        <button type="button" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light">Cancel</button>
-                                                        <button type="button" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Next</button>
+                                                        <button type="reset" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light">Cancel</button>
+                                                        <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Save</button>
                                                     </div>
 
                                                 </div>
                                             </form>
 
-                                        </div>
-                                        <div class="tab-pane" id="org" role="tabpanel" aria-labelledby="profile-tab" aria-expanded="false">
-
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="org_structure">
-                                                        <a href="javascrip:;" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Add New</a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="demo-inline-spacing">
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked="">
-                                                            <label class="form-check-label" for="inlineRadio1">Management</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                            <label class="form-check-label" for="inlineRadio2">Business Unit</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                                                            <label class="form-check-label" for="inlineRadio3">Operational</label>
-                                                        </div>
-                                                    </div>
-                                                    <form class="mt-3">
-                                                        <fieldset class="form-group mb-1">
-                                                            <label for="">Organization ID</label>
-                                                            <input type="text" class="form-control" placeholder="444589">
-                                                        </fieldset>
-                                                        <fieldset class="form-group mb-1">
-                                                            <label for="">Organization Name</label>
-                                                            <input type="text" class="form-control" placeholder="Siddipet Division">
-                                                        </fieldset>
-                                                        <fieldset class="form-group mb-1">
-                                                            <label for="">Parent Organization</label>
-                                                            <input type="text" class="form-control" placeholder="Telangana (40051)">
-                                                        </fieldset>
-                                                        <div>
-                                                            <button type="button" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light">Cancel</button>
-                                                            <button type="button" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Save</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -279,6 +228,40 @@
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
+
+    <script>
+        const toBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+
+        const organizition_detail = document.querySelector("#organizition_detail")
+        organizition_detail.addEventListener("submit", (e) => {
+            e.preventDefault()
+            let formData = new FormData(organizition_detail);
+            // const LogImage = document.querySelector("input[type=file]").files[0]
+            // const imageBase64 = toBase64(LogImage)
+            // formData.append('file', imageBase64);
+            formData.append('log_file', document.querySelector('.user-avatar').getAttribute('src'));
+
+            var ajaxReq = new XMLHttpRequest();
+            ajaxReq.open("POST", "{{server_url().'api/v1/organizition_insert'}}", true);
+            ajaxReq.addEventListener("readystatechange", function() {
+                if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
+                    final = JSON.parse(ajaxReq.responseText)
+                    console.log(final)
+                    if (final.success == true) {
+                        alert(final.message)
+                    } else {
+                        alert(final.error)
+                    }
+                }
+            })
+            ajaxReq.send(formData)
+        })
+    </script>
 </body>
 <!-- END: Body-->
 

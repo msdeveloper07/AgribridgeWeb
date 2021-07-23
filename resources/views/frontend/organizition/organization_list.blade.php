@@ -29,6 +29,7 @@
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
+
 <body class="vertical-layout vertical-menu-modern navbar-floating menu-collapsed footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="">
     <!-- BEGIN: Header-->
     @include('frontend.partials._header')
@@ -123,177 +124,7 @@
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-
-                                                    <td>
-                                                        <div class="avatar">
-                                                            <img src="{{asset('assets/app-assets/images/portrait/small/avatar-s-20.jpg')}}" alt="avtar img holder">
-                                                        </div> <b>444485</b>
-                                                    </td>
-                                                    <td>NABARD </td>
-                                                    <td>Mr. XYX</td>
-                                                    <td>abc@xyz.com</td>
-                                                    <td class="text-center"><label class="active-lable">Active</label></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="more-vertical"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">
-                                                                <a class="dropdown-item" href="javascript:;">View Details</a>
-                                                                <a class="dropdown-item" href="javascript:;">Change Status</a>
-                                                                <a class="dropdown-item" href="javascript:;">Reset Session</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="avatar">
-                                                            <img src="{{asset('assets/app-assets/images/portrait/small/avatar-s-18.jpg')}}" alt="avtar img holder">
-                                                        </div> <b>444385</b>
-                                                    </td>
-                                                    <td>NABARD </td>
-                                                    <td>Mr. XYX</td>
-                                                    <td>abc2@xyz.com</td>
-                                                    <td class="text-center"><label class="pending-lable">Pending</label></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="more-vertical"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">
-                                                                <a class="dropdown-item" href="javascript:;">View Details</a>
-                                                                <a class="dropdown-item" href="javascript:;">Change Status</a>
-                                                                <a class="dropdown-item" href="javascript:;">Reset Session</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="avatar">
-                                                            <img src="{{asset('assets/app-assets/images/portrait/small/avatar-s-19.jpg')}}" alt="avtar img holder">
-                                                        </div> <b>444385</b>
-                                                    </td>
-                                                    <td>NABARD </td>
-                                                    <td>Mr. XYX</td>
-                                                    <td>abc2@xyz.com</td>
-                                                    <td class="text-center"><label class="scheduled-lable">scheduled</label></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="more-vertical"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">
-                                                                <a class="dropdown-item" href="javascript:;">View Details</a>
-                                                                <a class="dropdown-item" href="javascript:;">Change Status</a>
-                                                                <a class="dropdown-item" href="javascript:;">Reset Session</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="avatar">
-                                                            <img src="{{asset('assets/app-assets/images/portrait/small/avatar-s-21.jpg')}}" alt="avtar img holder">
-                                                        </div> <b>444385</b>
-                                                    </td>
-                                                    <td>NABARD </td>
-                                                    <td>Mr. XYX</td>
-                                                    <td>abc2@xyz.com</td>
-                                                    <td class="text-center"><label class="active-lable">Active</label></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="more-vertical"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">
-                                                                <a class="dropdown-item" href="javascript:;">View Details</a>
-                                                                <a class="dropdown-item" href="javascript:;">Change Status</a>
-                                                                <a class="dropdown-item" href="javascript:;">Reset Session</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-
-                                                    <td>
-                                                        <div class="avatar">
-                                                            <img src="{{asset('assets/app-assets/images/portrait/small/avatar-s-20.jpg')}}" alt="avtar img holder">
-                                                        </div> <b>444485</b>
-                                                    </td>
-                                                    <td>NABARD </td>
-                                                    <td>Mr. XYX</td>
-                                                    <td>abc@xyz.com</td>
-                                                    <td class="text-center"><label class="active-lable">Active</label></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="more-vertical"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">
-                                                                <a class="dropdown-item" href="javascript:;">View Details</a>
-                                                                <a class="dropdown-item" href="javascript:;">Change Status</a>
-                                                                <a class="dropdown-item" href="javascript:;">Reset Session</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="avatar">
-                                                            <img src="{{asset('assets/app-assets/images/portrait/small/avatar-s-18.jpg')}}" alt="avtar img holder">
-                                                        </div> <b>444385</b>
-                                                    </td>
-                                                    <td>NABARD </td>
-                                                    <td>Mr. XYX</td>
-                                                    <td>abc2@xyz.com</td>
-                                                    <td class="text-center"><label class="pending-lable">Pending</label></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="more-vertical"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">
-                                                                <a class="dropdown-item" href="javascript:;">View Details</a>
-                                                                <a class="dropdown-item" href="javascript:;">Change Status</a>
-                                                                <a class="dropdown-item" href="javascript:;">Reset Session</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="avatar">
-                                                            <img src="{{asset('assets/app-assets/images/portrait/small/avatar-s-19.jpg')}}" alt="avtar img holder">
-                                                        </div> <b>444385</b>
-                                                    </td>
-                                                    <td>NABARD </td>
-                                                    <td>Mr. XYX</td>
-                                                    <td>abc2@xyz.com</td>
-                                                    <td class="text-center"><label class="scheduled-lable">scheduled</label></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="more-vertical"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">
-                                                                <a class="dropdown-item" href="javascript:;">View Details</a>
-                                                                <a class="dropdown-item" href="javascript:;">Change Status</a>
-                                                                <a class="dropdown-item" href="javascript:;">Reset Session</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="avatar">
-                                                            <img src="{{asset('assets/app-assets/images/portrait/small/avatar-s-21.jpg')}}" alt="avtar img holder">
-                                                        </div> <b>444385</b>
-                                                    </td>
-                                                    <td>NABARD </td>
-                                                    <td>Mr. XYX</td>
-                                                    <td>abc2@xyz.com</td>
-                                                    <td class="text-center"><label class="active-lable">Active</label></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="more-vertical"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">
-                                                                <a class="dropdown-item" href="javascript:;">View Details</a>
-                                                                <a class="dropdown-item" href="javascript:;">Change Status</a>
-                                                                <a class="dropdown-item" href="javascript:;">Reset Session</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                            <tbody id="organizition_list_id">
                                             </tbody>
                                         </table>
                                     </div>
@@ -341,6 +172,49 @@
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
+
+    <script>
+        const organizition_list_id = document.querySelector('#organizition_list_id')
+        var ajaxReq = new XMLHttpRequest();
+        ajaxReq.open("get", "{{server_url().'api/v1/get_organizition_list'}}", true);
+        ajaxReq.addEventListener("readystatechange", function() {
+            if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
+                final = JSON.parse(ajaxReq.responseText)
+                console.log(final)
+                const serverPath = '{{server_url()}}'
+                if (final.success == true) {
+                    final.data.forEach(element => {
+                        console.log(element)
+                        // active-lable
+                        // pending-lable
+                        // scheduled-lable
+                        var html = '<tr><td><div class="avatar">';
+                        html += '<img src="' + serverPath + element.org_logo_url + '" alt="avtar img holder">';
+                        html += '</div> <b>' + element.parent_org_id + '</b></td>';
+                        html += '<td>' + element.org_name + '</td>';
+                        html += '<td>Mr. XYX</td>';
+                        html += '<td>abc2@xyz.com</td>';
+                        html += '<td class="text-center"><label class="active-lable">Active</label></td>';
+                        html += '<td>';
+                        html += '   <div class="dropdown">';
+                        html += '      <a class="dropdown-toggle dropdown-user-link" id="dropdown-action" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></a>';
+                        html += '      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-action">';
+                        html += '          <a class="dropdown-item" href="javascript:;">View Details</a>';
+                        html += '          <a class="dropdown-item" href="javascript:;">Change Status</a>';
+                        html += '          <a class="dropdown-item" href="javascript:;">Reset Session</a>';
+                        html += '     </div>';
+                        html += '   </div>';
+                        html += ' </td>';
+                        html += '</tr>';
+                        $('#organizition_list_id').append(html)
+                    });
+                } else {
+                    alert(final.error)
+                }
+            }
+        })
+        ajaxReq.send()
+    </script>
 </body>
 <!-- END: Body-->
 
