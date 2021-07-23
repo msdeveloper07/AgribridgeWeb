@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/register', 'frontend.security.register', ["title" => 'Agribridge - Register'])->name('register');
 Route::view('/login', 'frontend.security.login', ["title" => 'Agribridge - Login'])->name('login');
 
+
 // Organizition
 Route::view('/organizition-detail', 'frontend.organizition.organization_detail', ["title" => 'Agribridge - Organization Detail'])->name("get_organization");
 Route::view('/organizition-list', 'frontend.organizition.organization_list', ["title" => 'Agribridge - Organization List'])->name("get_organization_list");
