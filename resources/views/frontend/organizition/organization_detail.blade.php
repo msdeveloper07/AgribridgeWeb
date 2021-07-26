@@ -236,16 +236,19 @@
             reader.onload = () => resolve(reader.result);
             reader.onerror = error => reject(error);
         });
-
+        const userAvatar = document.querySelector(".user-avatar")
         const organizition_detail = document.querySelector("#organizition_detail")
         organizition_detail.addEventListener("submit", (e) => {
             e.preventDefault()
             let formData = new FormData(organizition_detail);
-            // const LogImage = document.querySelector("input[type=file]").files[0]
-            // const imageBase64 = toBase64(LogImage)
-            // formData.append('file', imageBase64);
-            formData.append('log_file', document.querySelector('.user-avatar').getAttribute('src'));
-
+            const LogImage = document.querySelector("input[type=file]").files[0]
+            if (LogImage) {
+                const imageBase64 = toBase64(LogImage)
+                imageBase64.then(function(result) {
+                    userAvatar.setAttribute("src", result)
+                });
+                formData.append('log_file', userAvatar.getAttribute('src'));
+            }
             var ajaxReq = new XMLHttpRequest();
             ajaxReq.open("POST", "{{server_url().'api/v1/organizition_insert'}}", true);
             ajaxReq.addEventListener("readystatechange", function() {
