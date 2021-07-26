@@ -15,4 +15,4 @@ Route::view('/edit-farmer', 'frontend.farmer.edit_farmer', ["title" => 'Agribrid
 Route::view('/view-farmer-detail', 'frontend.farmer.view_farmer_details', ["title" => 'Agribridge - Farmer Detail'])->name("view_farmer_detail");
 
 // User
-Route::view('/edit-user', 'frontend.security.user_edit', ["title" => 'Agribridge - Edit User'])->name("edit_user");
+Route::view('/userprofile', 'frontend.security.user_edit', ["title" => 'Agribridge - User Profile'])->name("userprofile");

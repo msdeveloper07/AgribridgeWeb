@@ -180,9 +180,7 @@
         ajaxReq.addEventListener("readystatechange", function() {
             if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
                 final = JSON.parse(ajaxReq.responseText)
-                console.log(final)
-                const serverPath = '{{server_url()}}'
-                const defaultAvatar = 'storage/images/user.png'
+                // console.log(final)
                 if (final.success == true) {
                     final.data.forEach(element => {
                         console.log(element)

@@ -142,7 +142,8 @@
                     if (final.success == true) {
                         alert(final.message)
                         localStorage.setItem("token", "Bearer "+final.token)
-                        window.location.href = "{{route('edit_user')}}"
+                        localStorage.setItem("userData", JSON.stringify(final))
+                        window.location.href = "{{route('userprofile')}}"
                     } else {
                         alert(final.message)
                     }

@@ -64,17 +64,10 @@
                     <div class="row match-height">
 
                         <div class="col-12">
-                            <h2 class="card_title">Add User</h2>
+                            <h2 class="card_title">User Profile</h2>
                             <div class="card card-congratulation-medal">
                                 <div class="card-body a-custom-tab">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="pill" href="#overview" aria-expanded="true">Overview</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#org" aria-expanded="false">User Role</a>
-                                        </li>
-                                    </ul>
+                                    
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="overview" aria-labelledby="home-tab" aria-expanded="true">
                                             <form id="user_from">
@@ -87,12 +80,6 @@
                                                     </label>
                                                 </div>
                                                 <div class="row align-items-center">
-                                                    <div class="col-xl-4 col-md-6 col-12 mb-1">
-                                                        <fieldset class="form-group">
-                                                            <label for="user_id">User ID</label>
-                                                            <input type="text" id="user_id" class="form-control AjaxUser" placeholder="444589">
-                                                        </fieldset>
-                                                    </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="user_name">User Name</label>
@@ -193,8 +180,6 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="tab-pane" id="org" role="tabpanel" aria-labelledby="profile-tab" aria-expanded="false">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -247,8 +232,6 @@
         const getAllTag = document.querySelector("#user_from").getElementsByClassName("AjaxUser")
         const userAvatar = document.querySelector(".user-avatar")
         const user_image_url = document.querySelector('#user_image_url')
-        const serverPath = '{{server_url()}}'
-        const defaultAvatar = 'storage/images/user.png'
         const toBase64 = file => new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
@@ -312,7 +295,7 @@
                 }
 
                 var ajaxReq = new XMLHttpRequest();
-                ajaxReq.open("POST", "{{server_url().'api/v1/edit_user'}}", true);
+                ajaxReq.open("POST", "{{server_url().'api/v1/userprofile'}}", true);
                 ajaxReq.setRequestHeader("Authorization", ActiveToken)
                 ajaxReq.addEventListener("readystatechange", function() {
                     if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
