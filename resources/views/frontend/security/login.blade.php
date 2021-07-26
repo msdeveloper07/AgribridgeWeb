@@ -142,7 +142,7 @@
                     if (final.success == true) {
                         alert(final.message)
                         localStorage.setItem("token", "Bearer "+final.token)
-                        localStorage.setItem("userData", JSON.stringify(final))
+                        localStorage.setItem("userData", JSON.stringify(final.data))
                         window.location.href = "{{route('userprofile')}}"
                     } else {
                         alert(final.message)

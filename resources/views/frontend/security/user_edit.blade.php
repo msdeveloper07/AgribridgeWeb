@@ -303,6 +303,7 @@
                         console.log(final)
                         if (final.success == true) {
                             alert(final.message)
+                            localStorage.setItem("userData", JSON.stringify(final.data))
                         } else {
                             alert(final.message)
                         }
