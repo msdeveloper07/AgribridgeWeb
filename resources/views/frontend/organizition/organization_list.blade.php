@@ -182,6 +182,7 @@
                 final = JSON.parse(ajaxReq.responseText)
                 console.log(final)
                 const serverPath = '{{server_url()}}'
+                const defaultAvatar = 'storage/images/user.png'
                 if (final.success == true) {
                     final.data.forEach(element => {
                         console.log(element)
@@ -189,7 +190,7 @@
                         // pending-lable
                         // scheduled-lable
                         var html = '<tr><td><div class="avatar">';
-                        html += '<img src="' + serverPath + element.org_logo_url + '" alt="avtar img holder">';
+                        html += '<img src="' + serverPath + (element.org_logo_url ? element.org_logo_url : defaultAvatar) + '" alt="avtar img holder">';
                         html += '</div> <b>' + element.parent_org_id + '</b></td>';
                         html += '<td>' + element.org_name + '</td>';
                         html += '<td>Mr. XYX</td>';
@@ -209,8 +210,13 @@
                         $('#organizition_list_id').append(html)
                     });
                 } else {
-                    alert(final.error)
+                    alert(final.message)
                 }
+            }
+            if (ajaxReq.status === 403 || ajaxReq.status === 400) {
+                final = JSON.parse(ajaxReq.responseText)
+                alert(final.message)
+                window.location.href = "{{route('login')}}"
             }
         })
         ajaxReq.send()

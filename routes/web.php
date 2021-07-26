@@ -11,5 +11,8 @@ Route::view('/organizition-detail', 'frontend.organizition.organization_detail',
 Route::view('/organizition-list', 'frontend.organizition.organization_list', ["title" => 'Agribridge - Organization List'])->name("get_organization_list");
 
 // Farmer
-Route::view('/edit-farmer', 'frontend.farmer.edit_farmer', ["title" => 'Agribridge - Farmet Edit User'])->name("edit_farmer");
-Route::view('/view-farmer-detail', 'frontend.farmer.view_farmer_details', ["title" => 'Agribridge - Farmet Detail'])->name("view_farmer_detail");
+Route::view('/edit-farmer', 'frontend.farmer.edit_farmer', ["title" => 'Agribridge - Farmer Edit User'])->name("edit_farmer");
+Route::view('/view-farmer-detail', 'frontend.farmer.view_farmer_details', ["title" => 'Agribridge - Farmer Detail'])->name("view_farmer_detail");
+
+// User
+Route::view('/edit-user', 'frontend.security.user_edit', ["title" => 'Agribridge - Edit User'])->name("edit_user");
