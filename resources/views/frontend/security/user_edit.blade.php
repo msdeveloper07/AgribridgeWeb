@@ -72,7 +72,7 @@
                                         <div role="tabpanel" class="tab-pane active" id="overview" aria-labelledby="home-tab" aria-expanded="true">
                                             <form id="user_from">
                                                 <div class="d-flex profile-over mb-2">
-                                                    <img src="{{asset('assets/app-assets/images/avatars/7.png')}}" alt="users avatar" class="user-avatar  users-avatar-shadow rounded-circle  cursor-pointer" height="90" width="90" />
+                                                    <img src="{{asset('assets/app-assets/images/avatars/7.png')}}" alt="users avatar" class="user-avatar  users-avatar-shadow rounded-circle cursor-pointer" height="90" width="90" />
                                                     <label class="me-75 mb-0 icon-overlay" for="user_image_url">
                                                         <i data-feather="camera"></i>
                                                         <span>Update Photo</span>
@@ -98,7 +98,7 @@
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
                                                             <label for="email">Email Address</label>
-                                                            <input type="text" id="email" name="email" class="form-control AjaxUser" placeholder="gaurav@gmail.com">
+                                                            <input type="text" id="email" name="email" readonly class="form-control AjaxUser" placeholder="gaurav@gmail.com">
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
