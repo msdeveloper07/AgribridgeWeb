@@ -1,39 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SocialController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Security
+Route::view('/register', 'frontend.security.register', ["title" => 'Agribridge - Register'])->name('register');
+Route::view('/login', 'frontend.security.login', ["title" => 'Agribridge - Login'])->name('login');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/reset-password', 'frontend.security.passwords.email', ["title" => 'Agribridge - Forgot password'])->name('resetpassword');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-/** Login with facebook ***/
-Route::get('auth/facebook', [SocialController::class, 'facebookRedirect']);
-
-Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
-
-/** Login with twitter***/
-
-Route::get('auth/twitter', [SocialController::class, 'loginwithTwitter']);
-Route::get('auth/callback/twitter', [SocialController::class, 'cbTwitter']);
+Route::view('/change-password', 'frontend.security.passwords.reset', ["title" => 'Agribridge - Change password'])->name('changepassword');
 
 
+
+// Organizition
+Route::view('/organizition-detail', 'frontend.organizition.organization_detail', ["title" => 'Agribridge - Organization Detail'])->name("get_organization");
+Route::view('/organizition-list', 'frontend.organizition.organization_list', ["title" => 'Agribridge - Organization List'])->name("get_organization_list");
+
+// Farmer
+Route::view('/edit-farmer', 'frontend.farmer.edit_farmer', ["title" => 'Agribridge - Farmet Edit User'])->name("edit_farmer");
+Route::view('/view-farmer-detail', 'frontend.farmer.view_farmer_details', ["title" => 'Agribridge - Farmet Detail'])->name("view_farmer_detail");
