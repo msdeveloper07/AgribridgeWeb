@@ -131,7 +131,7 @@
                             alert(final.message)
                             window.location.href = "{{route('login')}}"
                         } else {
-                            alert(final.error)
+                            alert(final.message)
                         }
                     }
                 })

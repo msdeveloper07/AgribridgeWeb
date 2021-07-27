@@ -14,4 +14,8 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <!-- END: Custom CSS-->
+    <script>
+        const serverPath = '{{server_url()}}'
+        const defaultAvatar = 'storage/images/user.png'
+    </script>
 </head>

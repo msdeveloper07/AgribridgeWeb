@@ -72,17 +72,17 @@
                                 <div class="text-center"><img src="{{asset('assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                                 <h2 class="card-title fw-bold mb-1 text-center">Login to Agribridge</h2>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
-                                <form class="auth-login-form mt-2" action="index.html" method="POST">
+                                <form class="auth-login-form mt-2" id="login_form" method="POST">
                                     <div class="mb-1">
-                                        <label class="form-label" for="login-email">Email</label>
-                                        <input class="form-control" id="login-email" type="text" name="login-email" placeholder="john@example.com" aria-describedby="login-email" autofocus="" tabindex="1" />
+                                        <label class="form-label" for="email">Email</label>
+                                        <input class="form-control" id="email" type="text" name="email" placeholder="john@example.com" aria-describedby="login-email" autofocus="" tabindex="1" />
                                     </div>
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="login-password">Password</label><a href="page-auth-forgot-password-v2.html"><small>Forgot Password?</small></a>
+                                            <label class="form-label" for="password">Password</label><a href="javascript:void(0)"><small>Forgot Password?</small></a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="login-password" type="password" name="login-password" placeholder="············" aria-describedby="login-password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                            <input class="form-control form-control-merge" id="password" type="password" name="password" placeholder="············" aria-describedby="login-password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
                                     <div class="mb-1">
@@ -126,6 +126,32 @@
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
+
+    <script>
+        let login_form = document.getElementById('login_form');
+        login_form.addEventListener("submit", (e) => {
+            e.preventDefault()
+            let formData = new FormData(login_form);
+            console.log(formData);
+
+            var ajaxReq = new XMLHttpRequest();
+            ajaxReq.open("POST", "{{server_url().'api/v1/login'}}", true);
+            ajaxReq.addEventListener("readystatechange", function() {
+                if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
+                    final = JSON.parse(ajaxReq.responseText)
+                    if (final.success == true) {
+                        alert(final.message)
+                        localStorage.setItem("token", "Bearer "+final.token)
+                        localStorage.setItem("userData", JSON.stringify(final.data))
+                        window.location.href = "{{route('userprofile')}}"
+                    } else {
+                        alert(final.message)
+                    }
+                }
+            })
+            ajaxReq.send(formData)
+        })
+    </script>
 
 </body>
 <!-- END: Body-->

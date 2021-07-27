@@ -34,7 +34,7 @@
             </li>
             <li class="nav-item"><a class="d-flex align-items-center" href=""><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Invoice">Organization</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="organization-detail.html"><span class="menu-item text-truncate" data-i18n="List">Organization Details</span></a>
+                    <li><a class="d-flex align-items-center" href="{{route('get_organization')}}"><span class="menu-item text-truncate" data-i18n="List">Organization Details</span></a>
                     </li>
                     <li><a class="d-flex align-items-center" href="organization-add-user.html"><span class="menu-item text-truncate" data-i18n="Preview">Users</span></a>
                     </li>
