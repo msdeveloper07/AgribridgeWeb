@@ -5,7 +5,6 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title>{{@$title ? $title : 'Agribridge'}}</title>
-
     <link rel="apple-touch-icon" href="{{asset('assets/app-assets/images/ico/apple-icon-120.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/app-assets/images/ico/favicon.ico')}}">
 
