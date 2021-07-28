@@ -151,6 +151,75 @@
                   </div>
                </div>
             </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="{{asset('assets/app-assets/vendors/js/vendors.min.js')}}"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="{{asset('assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="{{asset('assets/app-assets/js/core/app-menu.js')}}"></script>
+    <script src="{{asset('assets/app-assets/js/core/app.js')}}"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="{{asset('assets/app-assets/js/scripts/pages/page-auth-register.js')}}"></script>
+    <!-- END: Page JS-->
+
+    @include('frontend.partials._footer_script')
+
+    <script>
+        const rePassword = document.getElementById('re-password');
+        const password = document.getElementById('password');
+        let registerForm = document.getElementById('registerForm');
+        registerForm.addEventListener("submit", (e) => {
+            e.preventDefault()
+            if (passwordCheck()) {
+                let formData = new FormData(registerForm);
+                console.log(formData);
+
+                var ajaxReq = new XMLHttpRequest();
+                ajaxReq.open("POST", "{{server_url().'api/v1/register'}}", true);
+                ajaxReq.addEventListener("readystatechange", function() {
+                    if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
+                        final = JSON.parse(ajaxReq.responseText)
+                        if (final.success == true) {
+                            alert(final.message)
+                            window.location.href = "{{route('login')}}"
+                        } else {
+                            alert(final.message)
+                        }
+                    }
+                })
+                ajaxReq.send(formData)
+            }
+        })
+
+        // rePassword.addEventListener("keyup", () => {})
+        function passwordCheck() {
+            if (password.value == '') {
+                alert("Please enter Password")
+                return false
+            } else if (rePassword.value == '') {
+                alert("Please enter confirm password")
+                return false
+            } else if (password.value != rePassword.value) {
+                alert("Password did not match: Please try again...")
+                return false
+            } else {
+                return true;
+            }
+        }
+    </script>
+</body>
+<!-- END: Body-->
+
          </div>
       </div>
       

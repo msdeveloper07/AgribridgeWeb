@@ -161,8 +161,10 @@
 
     @include('frontend.partials._footer_script')
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-      <script>   
+      <script>  
+
          var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/login"; 
+
          $('#userLogin').on('submit',function(e){
           
             e.preventDefault();
@@ -211,7 +213,6 @@
                 
                 }
             });
-
 
         });      
       </script>
