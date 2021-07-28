@@ -45,11 +45,12 @@
                            <!-- <p class="card-text mb-2">Make your app management easy and fun!</p> -->
                            <div class="text-center"><img src="{{asset('public/assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                          
-                           <form class="auth-register-form mt-2"   id="regForm" method="post" action="#">
+                        <form class="auth-register-form mt-2"   id="regForm" method="post" action="#">
                             @csrf
                             <div class="mb-1">
                                 <label class="form-label" for="user_name">{{ __('Full Name') }}</label>
                                 <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}"  autocomplete=" User name" autofocus placeholder="John doi" aria-describedby="user_name" autofocus="" tabindex="1">
+
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -59,12 +60,13 @@
                             <div class="mb-1">
                                  <label class="form-label" for="user_type">{{ __('User Type') }}</label>
                                  <select class="form-select  @error('user_type') is-invalid @enderror" id="user_type" name="user_type" tabindex="2">
+
                                  <option selected value="" disabled>Select user type</option>
                                  <option value="Farmer Producer Organization">Farmer Producer Organization</option>
                                  <option value="Cluster Management Company">Cluster Management Company</option>
                                  <option value="Private Organization">Private Organization</option>
                                  <option value="Individual Farmer">Individual Farmer</option>
-                                 </select>                                                          
+                               </select>                                                          
                             </div>
                             <div class="mb-1">
                                 <label class="form-label" for="register_company">{{ __('Company Name') }}</label>
@@ -89,7 +91,9 @@
 
                             <div class="mb-1">
                                 <label class="form-label" for="mobile_number">{{ __('Mobile Number') }}</label>
+
                                 <input class="form-control @error('mobile_number') is-invalid @enderror" id="mobile_number" type="tel" name="mobile_number" value="{{ old('mobile_number') }}" aria-describedby="mobile_number" autofocus="" tabindex="5" />
+
 
                                 @error('mobile_number')
                                 <span class="invalid-feedback" role="alert">
@@ -99,7 +103,9 @@
                             </div>                          
                             <div class="mb-1">
                                 <label class="form-label" for="register-email">{{ __('Email')}}</label>
+
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" placeholder="john@example.com" aria-describedby="register-email" tabindex="3" > 
+
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -109,8 +115,10 @@
                             <div class="mb-1">
                                 <label class="form-label" for="register-password">{{ __('Password')}}</label>
                                 <div class="input-group input-group-merge form-password-toggle">
+
                                 <input id="password" type="password" class="form-control form-control-merge @error('password') is-invalid @enderror" name="password"  autocomplete="new-password" placeholder="············" aria-describedby="register-password" tabindex="4">
                                 <span class="input-group-text cursor-pointer" id="togglePassword"><i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i></span>
+
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -121,8 +129,10 @@
                             <div class="mb-1">
                             <label class="form-label" for="register-password1">{{ __('Confirm Password') }}</label>
                             <div class="input-group input-group-merge form-password-toggle">
+
                                 <input id="password-confirm" type="password" class="form-control form-control-merge" name="password_confirmation"  autocomplete="new-password" placeholder="············" aria-describedby="register-password1" tabindex="5" >
                                 <span class="input-group-text cursor-pointer" id="togglePassword2"><i id="pass-status2" class="fa fa-eye" aria-hidden="true" onClick="viewPassword2()"></i></span>
+
                             </div>
                             </div>
                             <div class="mb-1">
@@ -132,11 +142,13 @@
                               </div>
                            </div>
 
+
                            <button type="submit" class="btn btn-primary w-100" id="registerFormBtn" tabindex="5">{{ __('Sign up')}}</button>
                                                       
                         </form>
                         <p id="alert-msg" class="text-center mt-2"> </p>
                            <p class="text-center mt-2"><span>Already have an account?</span><a href="{{route('login')}}"><span>&nbsp;Sign in instead</span></a></p>
+
                            <div class="divider my-2">
                               <div class="divider-text">or</div>
                            </div>
@@ -155,6 +167,7 @@
       </div>
       
       <!-- END: Content-->
+
       <link
      rel="stylesheet"
      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
@@ -162,7 +175,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
       <!-- BEGIN: Vendor JS-->
-     
+
       <!-- BEGIN Vendor JS-->
       <!-- BEGIN: Page Vendor JS-->
       <script src="{{asset('public/assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
@@ -174,6 +187,7 @@
       <!-- BEGIN: Page JS-->
       <script src="{{asset('public/assets/app-assets/js/scripts/pages/page-auth-register.js')}}"></script>
       <!-- END: Page JS-->
+
       <script src="{{asset('public/assets/app-assets/vendors/js/vendors.min.js')}}"></script>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
@@ -365,8 +379,8 @@
         });
          
         
-    </script>
-     
+    </script>     
+
    </body>
    <!-- END: Body-->
 </html>

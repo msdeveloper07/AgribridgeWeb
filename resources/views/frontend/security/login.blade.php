@@ -73,7 +73,9 @@
                                 <div class="text-center"><img src="{{asset('public/assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                                 <h2 class="card-title fw-bold mb-1 text-center">Login to Agribridge</h2>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
+
                                 <form method="POST" id="userLogin" class="auth-login-form mt-2" action="{{ route('login') }}">
+
                                 @csrf
                                 <div class="mb-1">
                                     <label class="form-label" for="login-email">{{ __('Email') }}</label>
@@ -93,8 +95,9 @@
                                             </a>
                                         
 
+
                                     </div>
-                                    <div class="input-group input-group-merge form-password-toggle">
+                                <div class="input-group input-group-merge form-password-toggle">
                                         <input id="password" type="password" class="form-control form-control-merge @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="············" aria-describedby="login-password" tabindex="2">
                                         <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         @error('password')
@@ -113,7 +116,9 @@
                                         </label>
                                     </div>
                                 </div>
+
                                 <button type="submit" id="loginBtn" class="btn btn-primary w-100" tabindex="4">
+
                                 {{ __('Sign in') }}
                                 </button>
                                 </form>
@@ -136,6 +141,7 @@
     <!-- END: Content-->
 
     <!-- BEGIN: Vendor JS-->
+
     <script src="{{asset('public/assets/app-assets/vendors/js/vendors.min.js')}}"></script>
     <!-- BEGIN Vendor JS-->
 
@@ -181,6 +187,7 @@
         });      
 
       </script>
+
 </body>
 <!-- END: Body-->
 
