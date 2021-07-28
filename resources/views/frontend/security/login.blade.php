@@ -3,23 +3,23 @@
 
 @section('insideHead')
 <!-- BEGIN: Vendor CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/vendors/css/vendors.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/vendors.min.css')}}">
 <!-- END: Vendor CSS-->
 
 <!-- BEGIN: Theme CSS-->
-<link rel="stylesheet" href="{{asset('public/assets/app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/bootstrap.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/bootstrap-extended.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/colors.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/components.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/dark-layout.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/bordered-layout.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/semi-dark-layout.css')}}">
+<link rel="stylesheet" href="{{asset('assets/app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap-extended.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/colors.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/components.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/dark-layout.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/bordered-layout.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/semi-dark-layout.css')}}">
 
 <!-- BEGIN: Page CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/plugins/forms/form-validation.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/pages/page-auth.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/plugins/forms/form-validation.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/pages/page-auth.css')}}">
 <!-- END: Page CSS-->
 @endsection
 
@@ -142,27 +142,27 @@
 
     <!-- BEGIN: Vendor JS-->
 
-    <script src="{{asset('public/assets/app-assets/vendors/js/vendors.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/vendors.min.js')}}"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="{{asset('public/assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="{{asset('public/assets/app-assets/js/core/app-menu.js')}}"></script>
-    <script src="{{asset('public/assets/app-assets/js/core/app.js')}}"></script>
+    <script src="{{asset('assets/app-assets/js/core/app-menu.js')}}"></script>
+    <script src="{{asset('assets/app-assets/js/core/app.js')}}"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="{{asset('public/assets/app-assets/js/scripts/pages/page-auth-login.js')}}"></script>
+    <script src="{{asset('assets/app-assets/js/scripts/pages/page-auth-login.js')}}"></script>
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
       <script>   
 
-         var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/authenticate'}}"; 
+         var requestUrl = "/api/v1/authenticate'}}"; 
          $('#userLogin').on('submit',function(e){
             e.preventDefault();
             $.ajaxSetup({
