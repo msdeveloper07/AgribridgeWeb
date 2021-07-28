@@ -74,7 +74,8 @@
                                 <h2 class="card-title fw-bold mb-1 text-center">Login to Agribridge</h2>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
 
-                                <form method="POST" id="userLogin" class="auth-login-form mt-2" action="">
+                            <form method="POST" id="userLogin" class="auth-login-form mt-2" action="">
+
 
                                 @csrf
                                 <div class="mb-1">
