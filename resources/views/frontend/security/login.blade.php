@@ -46,13 +46,13 @@
                                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img src="{{asset('public/assets/app-assets/images/pages/login-v2.svg')}}" class="img-fluid d-block w-100" alt="cf-img-1" />
+                                            <img src="{{asset('assets/app-assets/images/pages/login-v2.svg')}}" class="img-fluid d-block w-100" alt="cf-img-1" />
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{{asset('public/assets/app-assets/images/slider/02.jpg')}}" class="img-fluid d-block w-100" alt="cf-img-2" />
+                                            <img src="{{asset('assets/app-assets/images/slider/02.jpg')}}" class="img-fluid d-block w-100" alt="cf-img-2" />
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{{asset('public/assets/app-assets/images/pages/login-v2.svg')}}" class="img-fluid d-block w-100" alt="cf-img-1" />
+                                            <img src="{{asset('assets/app-assets/images/pages/login-v2.svg')}}" class="img-fluid d-block w-100" alt="cf-img-1" />
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
@@ -70,23 +70,41 @@
                         <!-- Login-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <div class="text-center"><img src="{{asset('public/assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
+                                <div class="text-center"><img src="{{asset('assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                                 <h2 class="card-title fw-bold mb-1 text-center">Login to Agribridge</h2>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
 
-                                <form class="auth-login-form mt-2" id="login_form" method="POST">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="email">Email</label>
-                                        <input class="form-control" id="email" type="text" name="email" placeholder="john@example.com" aria-describedby="login-email" autofocus="" tabindex="1" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="password">Password</label><a href="javascript:void(0)"><small>Forgot Password?</small></a>
-                                        </div>
-                                        <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="password" type="password" name="password" placeholder="············" aria-describedby="login-password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
-                                        </div>
+                                <form method="POST" id="userLogin" class="auth-login-form mt-2" action="">
 
+                                @csrf
+                                <div class="mb-1">
+                                    <label class="form-label" for="login-email">{{ __('Email') }}</label>
+                                    <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="john@example.com" aria-describedby="login-email" tabindex="1" />
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="mb-1">
+                                    <div class="d-flex justify-content-between">
+                                        <label class="form-label" for="login-password">{{ __('Password') }}</label>
+
+                                            <a href=""><small>
+                                            {{ __('Forgot Your Password?') }}</small>
+                                            </a>
+                                        
+
+
+                                    </div>
+                                <div class="input-group input-group-merge form-password-toggle">
+                                        <input id="password" type="password" class="form-control form-control-merge @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="············" aria-describedby="login-password" tabindex="2">
+                                        <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 
@@ -124,27 +142,26 @@
 
     <!-- BEGIN: Vendor JS-->
 
-    <script src="{{asset('public/assets/app-assets/vendors/js/vendors.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/vendors.min.js')}}"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="{{asset('public/assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="{{asset('public/assets/app-assets/js/core/app-menu.js')}}"></script>
-    <script src="{{asset('public/assets/app-assets/js/core/app.js')}}"></script>
+    <script src="{{asset('assets/app-assets/js/core/app-menu.js')}}"></script>
+    <script src="{{asset('assets/app-assets/js/core/app.js')}}"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="{{asset('public/assets/app-assets/js/scripts/pages/page-auth-login.js')}}"></script>
+    <script src="{{asset('assets/app-assets/js/scripts/pages/page-auth-login.js')}}"></script>
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
       <script>   
-
-         var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/authenticate'}}"; 
+         var requestUrl = "/api/v1/authenticate'}}"; 
          $('#userLogin').on('submit',function(e){
             e.preventDefault();
             $.ajaxSetup({
@@ -165,36 +182,8 @@
                     document.getElementById("loginBtn").reset(); 
                 }
             });
-
         });      
-
       </script>
-
-    <script>
-        let login_form = document.getElementById('login_form');
-        login_form.addEventListener("submit", (e) => {
-            e.preventDefault()
-            let formData = new FormData(login_form);
-            console.log(formData);
-
-            var ajaxReq = new XMLHttpRequest();
-            ajaxReq.open("POST", "{{server_url().'api/v1/login'}}", true);
-            ajaxReq.addEventListener("readystatechange", function() {
-                if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
-                    final = JSON.parse(ajaxReq.responseText)
-                    if (final.success == true) {
-                        alert(final.message)
-                        localStorage.setItem("token", "Bearer "+final.token)
-                        localStorage.setItem("userData", JSON.stringify(final.data))
-                        window.location.href = "{{route('userprofile')}}"
-                    } else {
-                        alert(final.message)
-                    }
-                }
-            })
-            ajaxReq.send(formData)
-        })
-    </script>
 
 </body>
 <!-- END: Body-->
