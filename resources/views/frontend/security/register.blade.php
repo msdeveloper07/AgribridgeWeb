@@ -45,11 +45,12 @@
                            <!-- <p class="card-text mb-2">Make your app management easy and fun!</p> -->
                            <div class="text-center"><img src="{{asset('public/assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                          
-                           <form name="registerForm" class="auth-register-form mt-2"   id="registerForm" method="post" action="javascript:void(0)">
+                        <form class="auth-register-form mt-2"   id="regForm" method="post" action="#">
                             @csrf
                             <div class="mb-1">
                                 <label class="form-label" for="user_name">{{ __('Full Name') }}</label>
-                                <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete=" User name" autofocus placeholder="John doi" aria-describedby="user_name" autofocus="" tabindex="1">
+                                <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}"  autocomplete=" User name" autofocus placeholder="John doi" aria-describedby="user_name" autofocus="" tabindex="1">
+
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -59,11 +60,13 @@
                             <div class="mb-1">
                                  <label class="form-label" for="user_type">{{ __('User Type') }}</label>
                                  <select class="form-select  @error('user_type') is-invalid @enderror" id="user_type" name="user_type" tabindex="2">
-                                 <option value="1">Farmer Producer Organization</option>
-                                 <option value="2">Cluster Management Company</option>
-                                 <option value="3">Private Organization</option>
-                                 <option value="4">Individual Farmer</option>
-                                 </select>                                                          
+
+                                 <option selected value="" disabled>Select user type</option>
+                                 <option value="Farmer Producer Organization">Farmer Producer Organization</option>
+                                 <option value="Cluster Management Company">Cluster Management Company</option>
+                                 <option value="Private Organization">Private Organization</option>
+                                 <option value="Individual Farmer">Individual Farmer</option>
+                               </select>                                                          
                             </div>
                             <div class="mb-1">
                                 <label class="form-label" for="register_company">{{ __('Company Name') }}</label>
@@ -88,7 +91,9 @@
 
                             <div class="mb-1">
                                 <label class="form-label" for="mobile_number">{{ __('Mobile Number') }}</label>
-                                <input class="form-control @error('mobile_number') is-invalid @enderror" id="mobile_number" type="text" name="mobile_number" value="{{ old('mobile_number') }}" placeholder="+919123456789" aria-describedby="mobile_number" autofocus="" tabindex="5" />
+
+                                <input class="form-control @error('mobile_number') is-invalid @enderror" id="mobile_number" type="tel" name="mobile_number" value="{{ old('mobile_number') }}" aria-describedby="mobile_number" autofocus="" tabindex="5" />
+
 
                                 @error('mobile_number')
                                 <span class="invalid-feedback" role="alert">
@@ -98,7 +103,9 @@
                             </div>                          
                             <div class="mb-1">
                                 <label class="form-label" for="register-email">{{ __('Email')}}</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="john@example.com" aria-describedby="register-email" tabindex="3" > 
+
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" placeholder="john@example.com" aria-describedby="register-email" tabindex="3" > 
+
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -108,8 +115,10 @@
                             <div class="mb-1">
                                 <label class="form-label" for="register-password">{{ __('Password')}}</label>
                                 <div class="input-group input-group-merge form-password-toggle">
-                                <input id="password" type="password" class="form-control form-control-merge @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="············" aria-describedby="register-password" tabindex="4">
-                                <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+
+                                <input id="password" type="password" class="form-control form-control-merge @error('password') is-invalid @enderror" name="password"  autocomplete="new-password" placeholder="············" aria-describedby="register-password" tabindex="4">
+                                <span class="input-group-text cursor-pointer" id="togglePassword"><i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i></span>
+
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -120,8 +129,10 @@
                             <div class="mb-1">
                             <label class="form-label" for="register-password1">{{ __('Confirm Password') }}</label>
                             <div class="input-group input-group-merge form-password-toggle">
-                                <input id="password-confirm" type="password" class="form-control form-control-merge" name="password_confirmation" required autocomplete="new-password" placeholder="············" aria-describedby="register-password1" tabindex="5" >
-                                <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+
+                                <input id="password-confirm" type="password" class="form-control form-control-merge" name="password_confirmation"  autocomplete="new-password" placeholder="············" aria-describedby="register-password1" tabindex="5" >
+                                <span class="input-group-text cursor-pointer" id="togglePassword2"><i id="pass-status2" class="fa fa-eye" aria-hidden="true" onClick="viewPassword2()"></i></span>
+
                             </div>
                             </div>
                             <div class="mb-1">
@@ -131,11 +142,13 @@
                               </div>
                            </div>
 
-                           <button class="btn btn-primary w-100" id="registerFormBtn" tabindex="5">{{ __('Sign up')}}</button>
-                           
+
+                           <button type="submit" class="btn btn-primary w-100" id="registerFormBtn" tabindex="5">{{ __('Sign up')}}</button>
+                                                      
                         </form>
                         <p id="alert-msg" class="text-center mt-2"> </p>
-                           <p class="text-center mt-2"><span>Already have an account?</span><a href="#"><span>&nbsp;Sign in instead</span></a></p>
+                           <p class="text-center mt-2"><span>Already have an account?</span><a href="{{route('login')}}"><span>&nbsp;Sign in instead</span></a></p>
+
                            <div class="divider my-2">
                               <div class="divider-text">or</div>
                            </div>
@@ -223,8 +236,15 @@
       </div>
       
       <!-- END: Content-->
+
+      <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
       <!-- BEGIN: Vendor JS-->
-      <script src="{{asset('public/assets/app-assets/vendors/js/vendors.min.js')}}"></script>
+
       <!-- BEGIN Vendor JS-->
       <!-- BEGIN: Page Vendor JS-->
       <script src="{{asset('public/assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
@@ -236,41 +256,200 @@
       <!-- BEGIN: Page JS-->
       <script src="{{asset('public/assets/app-assets/js/scripts/pages/page-auth-register.js')}}"></script>
       <!-- END: Page JS-->
-      @include('frontend.partials._footer_script')
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-      <script>     
 
-         var requestUrl = "{{server_url().'api/v1/register'}}"; 
-         $('#registerForm').on('submit',function(e){
-            e.preventDefault();
-            $.ajaxSetup({
-                headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $('#registerFormBtn').html('Please Wait...');
-            $("#registerFormBtn"). attr("disabled", true);
-            $( "#alert-msg" ).empty();
+      <script src="{{asset('public/assets/app-assets/vendors/js/vendors.min.js')}}"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>     
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+      @include('frontend.partials._footer_script')     
+      
+      <script>
+          
+          function viewPassword()
+            {
+            var passwordInput = document.getElementById('password');
+            var passStatus = document.getElementById('pass-status');
+            
+            if (passwordInput.type == 'password'){
+                passwordInput.type='text';
+                passStatus.className='fa fa-eye-slash';
+                
+            }
+            else{
+                passwordInput.type='password';
+                passStatus.className='fa fa-eye';
+            }
+            }
+            function viewPassword2()
+            {
+            var passwordInput = document.getElementById('password-confirm');
+            var passStatus = document.getElementById('pass-status2');
+            
+            if (passwordInput.type == 'password'){
+                passwordInput.type='text';
+                passStatus.className='fa fa-eye-slash';
+                
+            }
+            else{
+                passwordInput.type='password';
+                passStatus.className='fa fa-eye';
+            }
+            }
+
+        const phoneInputField = document.querySelector("#mobile_number");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: "in",
+            utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+        var value = $("#password").val();
+        $.validator.addMethod("checklower", function(value) {
+        return /[a-z]/.test(value);
+        });
+        $.validator.addMethod("checkupper", function(value) {
+        return /[A-Z]/.test(value);
+        });
+        $.validator.addMethod("checkdigit", function(value) {
+        return /[0-9]/.test(value);
+        });
+        $.validator.addMethod("pwcheck", function(value) {
+        return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) && /[a-z]/.test(value) && /\d/.test(value) && /[A-Z]/.test(value);
+        });
+        
+       $("#regForm").validate({
+        rules:{
+         user_name: {
+                        required: true,
+                        maxlength: 30,
+                    },
+                    user_type:{
+                        required: true,
+                    },
+                    register_company:{
+                        required: true,
+                        maxlength: 20,
+                    },
+                    designation:{
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    mobile_number: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 10,
+                        number: true,
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8,
+                        checklower: true,
+                        checkupper: true,
+                        checkdigit: true,
+                    },
+                    password_confirmation: {
+                        required: true,
+                        equalTo: "#password",
+                    },
+                    privacyPolicy:{
+                          required: true,
+                    },
+
+        },
+
+        messages: {
+         user_name: {
+                        required: "User name is required",
+                        maxlength: "User name cannot be more than 30 characters",
+                    },                    
+                    email: {
+                        required: "Email is required",
+                        email: "Email must be a valid email address",
+                    },
+                    mobile_number: {
+                        required: "Phone number is required",
+                        minlength: "Phone number must be of 10 digits",
+                    },
+                    password: {
+                        required: "Password is required",
+                        minlength: "Password must be at least 8 characters",
+                        checklower: "Your password must contain at least one lowercase letter.",
+                        checkupper: "Your password must contain at least one uppercase letter.",
+                        checkdigit: "Your password must contain at least one digit."
+                    },
+                    password_confirmation: {
+                        required:  "Confirm password is required",
+                        equalTo: "Password and confirm password should same",
+                    },
+                    privacyPolicy:{
+                        required:  "Checked Provacy policy checkbox",
+
+                    },
+                    designation:{
+                        required:  "Designation is required",
+                    },
+                    register_company:{
+                        required:  "Company name is required",
+                        maxlength: "Company name cannot be more than 20 characters",
+                    },
+                    user_type:{
+                        required:  "Please select user type",
+                    }, 
+             },
+
+            submitHandler: function(form){
+               var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/register";               
+                  $.ajaxSetup({
+                     headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                     }
+                  });
+                  $('#registerFormBtn').html('Please Wait...');
+                  $("#registerFormBtn"). attr("disabled", true);
+                  $( "#alert-msg" ).empty();
+                  
             $.ajax({
-                    url: requestUrl,
+               url: requestUrl,
                     type: "POST",
-                    data: $('#registerForm').serialize(),
+                    data: $('#regForm').serialize(),
                     success: function( response ) {
+                      //console.log(response);
                     var result = response.message;
-                    $('#registerFormBtn').html('Submit');
-                    $("#registerFormBtn"). attr("disabled", false);
-                    $('#alert-msg').html(result);
+                    var error = response.error;
+                    var success = response.success;
+                    if(success == true){
+                    setTimeout(function() {
+                        $('#registerFormBtn').html('Submit');
+                        $("#registerFormBtn"). attr("disabled", false);
+                        $('#alert-msg').html(result);
+                    }, 5000);
+
                     setTimeout(function() {
                         $( "#alert-msg" ).empty();
+                    }, 10000);
+                    document.getElementById("regForm").reset(); 
+                }else{
+
+                    setTimeout(function() {
+                        $('#registerFormBtn').html('Submit');
+                        $("#registerFormBtn"). attr("disabled", false);
+                        $('#alert-msg').html(error);
                     }, 5000);
-                    
-                    document.getElementById("registerForm").reset(); 
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
                 }
-            });
+                    
+                }            
+               });   
+            }
+        });
+         
+        
+    </script>     
 
-        });      
-
-      </script>
    </body>
    <!-- END: Body-->
 </html>

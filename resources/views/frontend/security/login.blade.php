@@ -3,23 +3,23 @@
 
 @section('insideHead')
 <!-- BEGIN: Vendor CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/vendors/css/vendors.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/vendors.min.css')}}">
 <!-- END: Vendor CSS-->
 
 <!-- BEGIN: Theme CSS-->
-<link rel="stylesheet" href="{{asset('public/assets/app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/bootstrap.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/bootstrap-extended.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/colors.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/components.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/dark-layout.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/bordered-layout.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/semi-dark-layout.css')}}">
+<link rel="stylesheet" href="{{asset('assets/app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap-extended.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/colors.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/components.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/dark-layout.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/bordered-layout.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/semi-dark-layout.css')}}">
 
 <!-- BEGIN: Page CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/plugins/forms/form-validation.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/pages/page-auth.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/plugins/forms/form-validation.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/pages/page-auth.css')}}">
 <!-- END: Page CSS-->
 @endsection
 
@@ -73,7 +73,7 @@
                                 <div class="text-center"><img src="{{asset('public/assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                                 <h2 class="card-title fw-bold mb-1 text-center">Login to Agribridge</h2>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
-<<<<<<< HEAD
+
                                 <form class="auth-login-form mt-2" id="login_form" method="POST">
                                     <div class="mb-1">
                                         <label class="form-label" for="email">Email</label>
@@ -86,36 +86,7 @@
                                         <div class="input-group input-group-merge form-password-toggle">
                                             <input class="form-control form-control-merge" id="password" type="password" name="password" placeholder="············" aria-describedby="login-password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
-=======
-                                <form method="POST" class="auth-login-form mt-2" action="{{ route('login') }}">
-                                @csrf
-                                <div class="mb-1">
-                                    <label class="form-label" for="login-email">{{ __('Email') }}</label>
-                                    <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="john@example.com" aria-describedby="login-email" tabindex="1" />
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="mb-1">
-                                    <div class="d-flex justify-content-between">
-                                        <label class="form-label" for="login-password">{{ __('Password') }}</label>
-                                        @if (Route::has('password.request'))
-                                        <a href="{{ route('password.request') }}"><small>
-                                        {{ __('Forgot Your Password?') }}</small>
-                                        </a>
-                                        @endif
-                                    </div>
-                                    <div class="input-group input-group-merge form-password-toggle">
-                                        <input id="password" type="password" class="form-control form-control-merge @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="············" aria-describedby="login-password" tabindex="2">
-                                        <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
->>>>>>> b3fbf80140ceef2c063d5f92f078e9e2fdbef02c
+
                                     </div>
                                 </div>
                                 
@@ -127,7 +98,9 @@
                                         </label>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary w-100" tabindex="4">
+
+                                <button type="submit" id="loginBtn" class="btn btn-primary w-100" tabindex="4">
+
                                 {{ __('Sign in') }}
                                 </button>
                                 </form>
@@ -150,23 +123,52 @@
     <!-- END: Content-->
 
     <!-- BEGIN: Vendor JS-->
-    <script src="{{asset('assets/app-assets/vendors/js/vendors.min.js')}}"></script>
+
+    <script src="{{asset('public/assets/app-assets/vendors/js/vendors.min.js')}}"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="{{asset('assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('public/assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="{{asset('assets/app-assets/js/core/app-menu.js')}}"></script>
-    <script src="{{asset('assets/app-assets/js/core/app.js')}}"></script>
+    <script src="{{asset('public/assets/app-assets/js/core/app-menu.js')}}"></script>
+    <script src="{{asset('public/assets/app-assets/js/core/app.js')}}"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="{{asset('assets/app-assets/js/scripts/pages/page-auth-login.js')}}"></script>
+    <script src="{{asset('public/assets/app-assets/js/scripts/pages/page-auth-login.js')}}"></script>
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+      <script>   
+
+         var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/authenticate'}}"; 
+         $('#userLogin').on('submit',function(e){
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#loginBtn').html('Please Wait...');
+            $("#loginBtn"). attr("disabled", true);
+            $.ajax({
+                    url: requestUrl,
+                    type: "POST",
+                    data: $('#userLogin').serialize(),
+                    success: function( response ) {
+                    var result = response.message;
+                    $('#loginBtn').html('Submit');
+                    $("#loginBtn"). attr("disabled", false);
+                    document.getElementById("loginBtn").reset(); 
+                }
+            });
+
+        });      
+
+      </script>
 
     <script>
         let login_form = document.getElementById('login_form');

@@ -1,6 +1,36 @@
-@extends('layouts.app')
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
 
-@section('content')
+@section('insideHead')
+<!-- BEGIN: Vendor CSS-->
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/vendors/css/vendors.min.css')}}">
+<!-- END: Vendor CSS-->
+
+<!-- BEGIN: Theme CSS-->
+<link rel="stylesheet" href="{{asset('public/assets/app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/bootstrap.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/bootstrap-extended.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/colors.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/components.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/dark-layout.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/bordered-layout.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/themes/semi-dark-layout.css')}}">
+
+<!-- BEGIN: Page CSS-->
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/plugins/forms/form-validation.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets/app-assets/css/pages/page-auth.css')}}">
+<!-- END: Page CSS-->
+@endsection
+
+<!-- BEGIN: Head-->
+@include('frontend.partials._html_head')
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+
+
 <!-- BEGIN: Content-->
     <div class="app-content content ">
         <div class="content-overlay"></div>
@@ -14,19 +44,15 @@
               
                 <!-- Left Text-->
                 <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-                    <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="{{ asset('resources/app-assets/images/pages/login-v2.svg')}}" alt="Register V2" /></div>
-                </div>
-                <!-- /Left Text-->
-                <!-- Reset password-->
-                <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
-                    <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                        <div class="text-center"><img src="{{ asset('resources/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
+
+                    <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="{{ asset('public/assets/app-assets/images/pages/login-v2.svg')}}" alt="Register V2" /></div>
+
+                        <div class="text-center"><img src="{{ asset('public/assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                         <h2 class="card-title fw-bold mb-1 text-center">Reset Password</h2>
                         <p class="card-text mb-2 text-center">Your new password must be different from previously used passwords</p>
-                        <form class="auth-reset-password-form mt-2" action="{{ route('password.update') }}" method="POST">
+                        <form class="auth-reset-password-form mt-2" action="" method="POST">
                              @csrf
-                             <input type="hidden" name="token" value="{{ $token }}">
-
+                             <input type="hidden" name="token" value="">
                             <div class="mb-1">
                                <div class="d-flex justify-content-between">
                                    <label class="form-label" for="email">{{ __('E-Mail Address') }}</label>
@@ -84,4 +110,30 @@
         </div>
         </div>
     <!-- END: Content-->
-@endsection
+
+
+ <!-- BEGIN: Vendor JS-->
+ <script src="{{asset('public/assets/app-assets/vendors/js/vendors.min.js')}}"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="{{asset('public/assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="{{asset('public/assets/app-assets/js/core/app-menu.js')}}"></script>
+    <script src="{{asset('public/assets/app-assets/js/core/app.js')}}"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="{{asset('public/assets/app-assets/js/scripts/pages/page-auth-login.js')}}"></script>
+    <!-- END: Page JS-->
+
+    @include('frontend.partials._footer_script')
+  
+</body>
+<!-- END: Body-->
+
+</html>
+
+
