@@ -8,8 +8,6 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css')}}">
-<!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/extensions/toastr.min.css')}}"> -->
 <!-- END: Vendor CSS-->
 
 <!-- BEGIN: Theme CSS-->
@@ -64,66 +62,62 @@
                 <!-- Dashboard Ecommerce Starts -->
                 <section id="dashboard-ecommerce">
                     <div class="row match-height">
+
                         <div class="col-12">
-                            <h2 class="card_title">Organization</h2>
+                            <h2 class="card_title">User Profile</h2>
                             <div class="card card-congratulation-medal">
                                 <div class="card-body a-custom-tab">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="pill" href="#overview" aria-expanded="true">Overview</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#org" aria-expanded="false">Org Structure</a>
-                                        </li>
-                                    </ul>
+                                    
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="overview" aria-labelledby="home-tab" aria-expanded="true">
-                                            <form id="organizition_detail">
-                                                <div class="d-flex mb-2">
-                                                    <div class="mt-50">
-                                                        <h4>Upload Logo</h4>
-                                                        <div class="col-12 d-flex profile-over mt-1 px-0">
-                                                            <img src="{{asset('assets/app-assets/images/avatars/2.png')}}" alt="users avatar" class="user-avatar users-avatar-shadow rounded-circle me-2 my-25 cursor-pointer" height="90" width="90" />
-                                                            <label class="me-75 mb-0 icon-overlay" for="change-picture">
-                                                                <i data-feather="camera"></i>
-                                                                <span>Update Logo</span>
-                                                                <input class="form-control" type="file" id="change-picture" name="org_logo_url" hidden accept="image/png, image/jpeg, image/jpg" />
-                                                            </label>
-                                                        </div>
-                                                    </div>
+                                            <form id="user_from">
+                                                <div class="d-flex profile-over mb-2">
+                                                    <img src="{{asset('assets/app-assets/images/avatars/7.png')}}" alt="users avatar" class="user-avatar  users-avatar-shadow rounded-circle cursor-pointer" height="90" width="90" />
+                                                    <label class="me-75 mb-0 icon-overlay" for="user_image_url">
+                                                        <i data-feather="camera"></i>
+                                                        <span>Update Photo</span>
+                                                        <input class="form-control AjaxUser" type="file" id="user_image_url" name="user_image_url" hidden accept="image/png, image/jpeg, image/jpg" />
+                                                    </label>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row align-items-center">
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">Organization ID</label>
-                                                            <input type="text" name="parent_org_id" readonly class="form-control" placeholder="444589">
+                                                            <label for="user_name">User Name</label>
+                                                            <input type="text" id="user_name" name="user_name" class="form-control AjaxUser" placeholder="Gaurav Sharma">
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">Organization Name</label>
-                                                            <input type="text" name="org_name" class="form-control" placeholder="Gourmet Popcornica">
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-xl-4 col-md-6 col-12 mb-1">
-                                                        <fieldset class="form-group">
-                                                            <label for="">Organization Type</label>
-                                                            <select class="form-select" name="org_type">
-                                                                <option value="2">Cluster Management</option>
-                                                                <option value="3">Management</option>
+                                                            <label for="business_unit_id">Business Unit Type</label>
+                                                            <select class="form-select AjaxUser" name="business_unit_id" id="business_unit_id">
+                                                                <option value="1">Siddipet Division</option>
+                                                                <option value="2">Division</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
-                                                    <div class="col-xl-12 col-md-12 col-12 mb-1">
+                                                    <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">Address</label>
-                                                            <input type="text" name="org_address" class="form-control" placeholder="234, xyz village">
+                                                            <label for="email">Email Address</label>
+                                                            <input type="text" id="email" name="email" readonly class="form-control AjaxUser" placeholder="gaurav@gmail.com">
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">Country</label>
-                                                            <select class="form-select" name="org_country">
+                                                            <label for="mobile_number">Mobile </label>
+                                                            <input type="tel" id="mobile_number" name="mobile_number" class="form-control AjaxUser" placeholder="1234567890">
+                                                        </fieldset>
+                                                    </div>
+
+                                                    <div class="col-xl-12 col-md-12 col-12 mb-1">
+                                                        <fieldset class="form-group">
+                                                            <label for="address">Address</label>
+                                                            <input type="text" id="address" name="address" class="form-control AjaxUser" placeholder="234, xyz village">
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                                        <fieldset class="form-group">
+                                                            <label for="country">Country</label>
+                                                            <select class="form-select AjaxUser" id="country" name="country">
                                                                 <option value="1">Afghanistan</option>
                                                                 <option value="2">Åland Islands</option>
                                                                 <option value="3">Albania</option>
@@ -141,91 +135,50 @@
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">State</label>
-                                                            <select class="form-select" name="org_state">
+                                                            <label for="state">State</label>
+                                                            <select class="form-select AjaxUser" name="state" id="state">
                                                                 <option value="1">Telangana</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">District</label>
-                                                            <select class="form-select" name="org_district">
+                                                            <label for="district">District</label>
+                                                            <select class="form-select AjaxUser" name="district" id="district">
                                                                 <option value="1">Siddipet</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">Taluka</label>
-                                                            <select class="form-select" name="org_taluka">
+                                                            <label for="mandal">Mandal</label>
+                                                            <select class="form-select AjaxUser" name="mandal" id="mandal">
                                                                 <option value="1">Siddipet</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">Village</label>
-                                                            <select class="form-select" name="org_village">
+                                                            <label for="village">Village</label>
+                                                            <select class="form-select AjaxUser" name="village" id="village">
                                                                 <option value="1">Siddipet</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-xl-4 col-md-6 col-12 mb-1">
                                                         <fieldset class="form-group">
-                                                            <label for="">Pincode</label>
-                                                            <input type="text" name="org_pincode" class="form-control" placeholder="500011">
+                                                            <label for="zipcode">Pincode</label>
+                                                            <input type="text" id="zipcode" name="zipcode" class="form-control AjaxUser" placeholder="500011">
                                                         </fieldset>
                                                     </div>
 
-                                                    <div class="col-12 mt-5">
-                                                        <button type="reset" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light">Cancel</button>
+                                                    <div class="col-12 mt-3">
+                                                        <button type="button" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light">Cancel</button>
                                                         <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Save</button>
                                                     </div>
 
                                                 </div>
                                             </form>
-
-                                        </div>
-                                        <div class="tab-pane" id="org" role="tabpanel" aria-labelledby="profile-tab" aria-expanded="false">
-
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="org_structure">
-                                                        <a href="javascrip:;" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Add New</a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="demo-inline-spacing">
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked="">
-                                                            <label class="form-check-label" for="inlineRadio1">Management</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                            <label class="form-check-label" for="inlineRadio2">Business Unit</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                                                            <label class="form-check-label" for="inlineRadio3">Operational</label>
-                                                        </div>
-                                                    </div>
-                                                    <form class="mt-3">
-                                                        <fieldset class="form-group mb-1">
-                                                            <label for="">Organization Name</label>
-                                                            <input type="text" class="form-control" placeholder="Siddipet Division">
-                                                        </fieldset>
-                                                        <fieldset class="form-group mb-1">
-                                                            <label for="">Parent Organization</label>
-                                                            <input type="text" class="form-control" placeholder="Telangana (40051)">
-                                                        </fieldset>
-                                                        <div>
-                                                            <button type="button" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light">Cancel</button>
-                                                            <button type="button" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Save</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -234,6 +187,7 @@
                     </div>
                 </section>
                 <!-- Dashboard Ecommerce ends -->
+
             </div>
         </div>
     </div>
@@ -251,10 +205,13 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <!-- <script src="{{asset('assets/app-assets/vendors/js/charts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('assets/app-assets/vendors/js/extensions/toastr.min.js')}}"></script> -->
-    <script src="{{asset('assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('assets/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/tables/datatable/responsive.bootstrap4.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/tables/datatable/responsive.bootstrap4.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js')}}"></script>
+    <script src="{{asset('assets/app-assets/vendors/js/tables/datatable/buttons.bootstrap5.min.js')}}"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -263,44 +220,54 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <!-- <script src="asset('assets/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script> -->
-    <script src="{{asset('assets/app-assets/js/scripts/pages/app-user-edit.js')}}"></script>
-    <script src="{{asset('assets/app-assets/js/scripts/components/components-navs.js')}}"></script>
-    <script src="{{asset('assets/app-assets/js/scripts/tables/table-datatables-basic.js')}}"></script>
+    <!-- <script src="{{asset('assets/app-assets/js/scripts/pages/dashboard-ecommerce.js')}}"></script> -->
+    <script src="{{asset('assets/app-assets/js/scripts/pages/app-user-list.js')}}"></script>
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
 
     <script>
+        const user_from = document.querySelector("#user_from")
+        const ActiveToken = localStorage.getItem("token")
+        const getAllTag = document.querySelector("#user_from").getElementsByClassName("AjaxUser")
+        const userAvatar = document.querySelector(".user-avatar")
+        const user_image_url = document.querySelector('#user_image_url')
         const toBase64 = file => new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = () => resolve(reader.result);
             reader.onerror = error => reject(error);
         });
-        const userAvatar = document.querySelector(".user-avatar")
-        const organizition_detail = document.querySelector("#organizition_detail")
-        organizition_detail.addEventListener("submit", (e) => {
-            e.preventDefault()
-            let formData = new FormData(organizition_detail);
-            const LogImage = document.querySelector("input[type=file]").files[0]
-            if (LogImage) {
-                const imageBase64 = toBase64(LogImage)
-                imageBase64.then(function(result) {
-                    userAvatar.setAttribute("src", result)
-                });
-                formData.append('log_file', userAvatar.getAttribute('src'));
-            }
+
+        // set Live image
+        user_image_url.addEventListener("change", () => {
+            const LogImage = document.querySelector("#user_image_url").files[0]
+            const imageBase64 = toBase64(LogImage)
+            imageBase64.then(function(result) {
+                userAvatar.setAttribute("src", result)
+            });
+        })
+
+        if (ActiveToken) {
+            // get Data
             var ajaxReq = new XMLHttpRequest();
-            ajaxReq.open("POST", "{{server_url().'api/v1/organizition_insert'}}", true);
+            ajaxReq.open("get", "{{server_url().'api/v1/get_user'}}", true);
+            ajaxReq.setRequestHeader("Authorization", ActiveToken)
             ajaxReq.addEventListener("readystatechange", function() {
                 if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
                     final = JSON.parse(ajaxReq.responseText)
-                    console.log(final)
                     if (final.success == true) {
-                        alert(final.message)
-                        organizition_detail.reset()
-                        window.location.href = "{{route('get_organization_list')}}"
+                        var dataIs = final.data
+                        for (let index = 0; index < getAllTag.length; index++) {
+                            const element = getAllTag[index]
+                            const eachId = element.getAttribute("id")
+                            if (eachId == "user_image_url") {
+                                let Image = (serverPath + (dataIs[eachId] ? dataIs[eachId] : defaultAvatar))
+                                userAvatar.setAttribute("src", Image)
+                            } else {
+                                dataIs[eachId] ? (document.querySelector("#" + eachId).value = dataIs[eachId]) : ''
+                            }
+                        }
                     } else {
                         alert(final.message)
                     }
@@ -311,9 +278,50 @@
                     window.location.href = "{{route('login')}}"
                 }
             })
-            ajaxReq.send(formData)
-        })
+            ajaxReq.send()
+
+            // Edit Data
+            user_from.addEventListener("submit", (e) => {
+                e.preventDefault()
+                let formData = new FormData(user_from);
+                const LogImage = document.querySelector("#user_image_url").files[0]
+                if (LogImage) {
+                    const imageBase64 = toBase64(LogImage)
+                    imageBase64.then(function(result) {
+                        userAvatar.setAttribute("src", result)
+                        // formData.append('file', result);
+                    });
+                    formData.append('log_file', userAvatar.getAttribute('src'));
+                }
+
+                var ajaxReq = new XMLHttpRequest();
+                ajaxReq.open("POST", "{{server_url().'api/v1/userprofile'}}", true);
+                ajaxReq.setRequestHeader("Authorization", ActiveToken)
+                ajaxReq.addEventListener("readystatechange", function() {
+                    if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
+                        final = JSON.parse(ajaxReq.responseText)
+                        console.log(final)
+                        if (final.success == true) {
+                            alert(final.message)
+                            localStorage.setItem("userData", JSON.stringify(final.data))
+                        } else {
+                            alert(final.message)
+                        }
+                    }
+                    if (ajaxReq.status === 403 || ajaxReq.status === 400) {
+                        final = JSON.parse(ajaxReq.responseText)
+                        alert(final.message)
+                        window.location.href = "{{route('login')}}"
+                    }
+                })
+                ajaxReq.send(formData)
+            })
+
+        } else {
+            window.location.href = "{{route('login')}}"
+        }
     </script>
+
 </body>
 <!-- END: Body-->
 

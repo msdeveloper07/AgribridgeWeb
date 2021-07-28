@@ -46,13 +46,13 @@
                                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img src="{{asset('public/assets/app-assets/images/pages/login-v2.svg')}}" class="img-fluid d-block w-100" alt="cf-img-1" />
+                                            <img src="{{asset('assets/app-assets/images/pages/login-v2.svg')}}" class="img-fluid d-block w-100" alt="cf-img-1" />
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{{asset('public/assets/app-assets/images/slider/02.jpg')}}" class="img-fluid d-block w-100" alt="cf-img-2" />
+                                            <img src="{{asset('assets/app-assets/images/slider/02.jpg')}}" class="img-fluid d-block w-100" alt="cf-img-2" />
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="{{asset('public/assets/app-assets/images/pages/login-v2.svg')}}" class="img-fluid d-block w-100" alt="cf-img-1" />
+                                            <img src="{{asset('assets/app-assets/images/pages/login-v2.svg')}}" class="img-fluid d-block w-100" alt="cf-img-1" />
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
@@ -70,11 +70,11 @@
                         <!-- Login-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <div class="text-center"><img src="{{asset('public/assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
+                                <div class="text-center"><img src="{{asset('assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                                 <h2 class="card-title fw-bold mb-1 text-center">Login to Agribridge</h2>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
 
-                                <form method="POST" id="userLogin" class="auth-login-form mt-2" action="{{ route('login') }}">
+                                <form method="POST" id="userLogin" class="auth-login-form mt-2" action="">
 
                                 @csrf
                                 <div class="mb-1">
@@ -122,6 +122,7 @@
                                 {{ __('Sign in') }}
                                 </button>
                                 </form>
+                                <p id="alert-msg" class="text-center mt-2"> </p>
                                 <p class="text-center mt-2"><span>New on our platform?</span><a href="{{route('register')}}"><span>&nbsp;Create an account</span></a></p>
                                 <div class="divider my-2">
                                     <div class="divider-text">or</div>
@@ -161,9 +162,9 @@
     @include('frontend.partials._footer_script')
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
       <script>   
-
-         var requestUrl = "/api/v1/authenticate'}}"; 
+         var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/login"; 
          $('#userLogin').on('submit',function(e){
+          
             e.preventDefault();
             $.ajaxSetup({
                 headers: {
@@ -172,20 +173,47 @@
             });
             $('#loginBtn').html('Please Wait...');
             $("#loginBtn"). attr("disabled", true);
+            $( "#alert-msg" ).empty();
             $.ajax({
                     url: requestUrl,
                     type: "POST",
                     data: $('#userLogin').serialize(),
-                    success: function( response ) {
+                    success: function( response ){ 
                     var result = response.message;
-                    $('#loginBtn').html('Submit');
-                    $("#loginBtn"). attr("disabled", false);
+                    var error = response.error;
+                    var success = response.success;                
+
+                    if(success == true){
+                    setTimeout(function() {
+                       $('#loginBtn').html('Submit');
+                       $("#loginBtn"). attr("disabled", false);
+                        $('#alert-msg').html(result);
+                    }, 5000);
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
                     document.getElementById("loginBtn").reset(); 
+                    
+                    
+                }else{
+
+                    setTimeout(function() {
+                        $('#loginBtn').html('Submit');
+                        $("#loginBtn"). attr("disabled", false);
+                        $('#alert-msg').html(error);
+                    }, 5000);
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
+                }
+                
                 }
             });
 
-        });      
 
+        });      
       </script>
 
 </body>

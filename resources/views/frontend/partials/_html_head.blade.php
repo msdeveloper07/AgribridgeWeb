@@ -5,7 +5,6 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title>{{@$title ? $title : 'Agribridge'}}</title>
-
     <link rel="apple-touch-icon" href="{{asset('assets/app-assets/images/ico/apple-icon-120.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/app-assets/images/ico/favicon.ico')}}">
 
@@ -18,4 +17,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
 
     <!-- END: Custom CSS-->
+    <script>
+        const serverPath = '{{server_url()}}'
+        const defaultAvatar = 'storage/images/user.png'
+    </script>
 </head>
