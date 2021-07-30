@@ -45,11 +45,12 @@
                            <!-- <p class="card-text mb-2">Make your app management easy and fun!</p> -->
                            <div class="text-center"><img src="{{asset('assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                          
-                           <form class="auth-register-form mt-2"   id="regForm" method="post" action="#">
+                        <form class="auth-register-form mt-2"   id="regForm" method="post" action="#">
                             @csrf
                             <div class="mb-1">
                                 <label class="form-label" for="user_name">{{ __('Full Name') }}</label>
                                 <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}"  autocomplete=" User name" autofocus placeholder="John doi" aria-describedby="user_name" autofocus="" tabindex="1">
+
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -59,12 +60,13 @@
                             <div class="mb-1">
                                  <label class="form-label" for="user_type">{{ __('User Type') }}</label>
                                  <select class="form-select  @error('user_type') is-invalid @enderror" id="user_type" name="user_type" tabindex="2">
+
                                  <option selected value="" disabled>Select user type</option>
                                  <option value="Farmer Producer Organization">Farmer Producer Organization</option>
                                  <option value="Cluster Management Company">Cluster Management Company</option>
                                  <option value="Private Organization">Private Organization</option>
                                  <option value="Individual Farmer">Individual Farmer</option>
-                                 </select>                                                          
+                               </select>                                                          
                             </div>
                             <div class="mb-1">
                                 <label class="form-label" for="register_company">{{ __('Company Name') }}</label>
@@ -89,7 +91,9 @@
 
                             <div class="mb-1">
                                 <label class="form-label" for="mobile_number">{{ __('Mobile Number') }}</label>
+
                                 <input class="form-control @error('mobile_number') is-invalid @enderror" id="mobile_number" type="tel" name="mobile_number" value="{{ old('mobile_number') }}" aria-describedby="mobile_number" autofocus="" tabindex="5" />
+
 
                                 @error('mobile_number')
                                 <span class="invalid-feedback" role="alert">
@@ -99,7 +103,9 @@
                             </div>                          
                             <div class="mb-1">
                                 <label class="form-label" for="register-email">{{ __('Email')}}</label>
+
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" placeholder="john@example.com" aria-describedby="register-email" tabindex="3" > 
+
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -109,8 +115,10 @@
                             <div class="mb-1">
                                 <label class="form-label" for="register-password">{{ __('Password')}}</label>
                                 <div class="input-group input-group-merge form-password-toggle">
+
                                 <input id="password" type="password" class="form-control form-control-merge @error('password') is-invalid @enderror" name="password"  autocomplete="new-password" placeholder="············" aria-describedby="register-password" tabindex="4">
                                 <span class="input-group-text cursor-pointer" id="togglePassword"><i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i></span>
+
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -118,13 +126,7 @@
                                 @enderror
                                 </div>
                             </div>
-                            <div class="mb-1">
-                            <label class="form-label" for="register-password1">{{ __('Confirm Password') }}</label>
-                            <div class="input-group input-group-merge form-password-toggle">
-                                <input id="password-confirm" type="password" class="form-control form-control-merge" name="password_confirmation"  autocomplete="new-password" placeholder="············" aria-describedby="register-password1" tabindex="5" >
-                                <span class="input-group-text cursor-pointer" id="togglePassword2"><i id="pass-status2" class="fa fa-eye" aria-hidden="true" onClick="viewPassword2()"></i></span>
-                            </div>
-                            </div>
+                         
                             <div class="mb-1">
                               <div class="form-check">
                                  <input class="form-check-input" id="register-privacy-policy" type="checkbox" name="privacyPolicy" tabindex="4" />
@@ -132,11 +134,13 @@
                               </div>
                            </div>
 
+
                            <button type="submit" class="btn btn-primary w-100" id="registerFormBtn" tabindex="5">{{ __('Sign up')}}</button>
                                                       
                         </form>
                         <p id="alert-msg" class="text-center mt-2"> </p>
                            <p class="text-center mt-2"><span>Already have an account?</span><a href="{{route('login')}}"><span>&nbsp;Sign in instead</span></a></p>
+
                            <div class="divider my-2">
                               <div class="divider-text">or</div>
                            </div>
@@ -171,89 +175,22 @@
     <!-- BEGIN: Page JS-->
     <script src="{{asset('assets/app-assets/js/scripts/pages/page-auth-register.js')}}"></script>
     <!-- END: Page JS-->
-
-    @include('frontend.partials._footer_script')
-
-    <script>
-        const rePassword = document.getElementById('re-password');
-        const password = document.getElementById('password');
-        let registerForm = document.getElementById('registerForm');
-        registerForm.addEventListener("submit", (e) => {
-            e.preventDefault()
-            if (passwordCheck()) {
-                let formData = new FormData(registerForm);
-                console.log(formData);
-
-                var ajaxReq = new XMLHttpRequest();
-                ajaxReq.open("POST", "{{server_url().'api/v1/register'}}", true);
-                ajaxReq.addEventListener("readystatechange", function() {
-                    if (ajaxReq.readyState === 4 && ajaxReq.status === 200) {
-                        final = JSON.parse(ajaxReq.responseText)
-                        if (final.success == true) {
-                            alert(final.message)
-                            window.location.href = "{{route('login')}}"
-                        } else {
-                            alert(final.message)
-                        }
-                    }
-                })
-                ajaxReq.send(formData)
-            }
-        })
-
-        // rePassword.addEventListener("keyup", () => {})
-        function passwordCheck() {
-            if (password.value == '') {
-                alert("Please enter Password")
-                return false
-            } else if (rePassword.value == '') {
-                alert("Please enter confirm password")
-                return false
-            } else if (password.value != rePassword.value) {
-                alert("Password did not match: Please try again...")
-                return false
-            } else {
-                return true;
-            }
-        }
-    </script>
-</body>
-<!-- END: Body-->
-
-         </div>
-      </div>
-      
-      <!-- END: Content-->
       <link
      rel="stylesheet"
      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
    />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-
-      <!-- BEGIN: Vendor JS-->
-     
-      <!-- BEGIN Vendor JS-->
-      <!-- BEGIN: Page Vendor JS-->
-      <script src="{{asset('assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
-      <!-- END: Page Vendor JS-->
-      <!-- BEGIN: Theme JS-->
-      <script src="{{asset('assets/app-assets/js/core/app-menu.js')}}"></script>
-      <script src="{{asset('assets/app-assets/js/core/app.js')}}"></script>
-      <!-- END: Theme JS-->
-      <!-- BEGIN: Page JS-->
-      <script src="{{asset('assets/app-assets/js/scripts/pages/page-auth-register.js')}}"></script>
-      <!-- END: Page JS-->
-      <script src="{{asset('assets/app-assets/vendors/js/vendors.min.js')}}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>   
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
       @include('frontend.partials._footer_script')     
       
       <script>
+         
           
           function viewPassword()
             {
-            var passwordInput = document.getElementById('password');
-            var passStatus = document.getElementById('pass-status');
+                const passwordInput = document.getElementById('password');
+                const passStatus = document.getElementById('pass-status');
             
             if (passwordInput.type == 'password'){
                 passwordInput.type='text';
@@ -265,21 +202,7 @@
                 passStatus.className='fa fa-eye';
             }
             }
-            function viewPassword2()
-            {
-            var passwordInput = document.getElementById('password-confirm');
-            var passStatus = document.getElementById('pass-status2');
-            
-            if (passwordInput.type == 'password'){
-                passwordInput.type='text';
-                passStatus.className='fa fa-eye-slash';
-                
-            }
-            else{
-                passwordInput.type='password';
-                passStatus.className='fa fa-eye';
-            }
-            }
+           
 
         const phoneInputField = document.querySelector("#mobile_number");
         const phoneInput = window.intlTelInput(phoneInputField, {
@@ -287,7 +210,7 @@
             utilsScript:
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
-        var value = $("#password").val();
+        const value = $("#password").val();
         $.validator.addMethod("checklower", function(value) {
         return /[a-z]/.test(value);
         });
@@ -333,11 +256,7 @@
                         checklower: true,
                         checkupper: true,
                         checkdigit: true,
-                    },
-                    password_confirmation: {
-                        required: true,
-                        equalTo: "#password",
-                    },
+                    },                    
                     privacyPolicy:{
                           required: true,
                     },
@@ -363,11 +282,7 @@
                         checklower: "Your password must contain at least one lowercase letter.",
                         checkupper: "Your password must contain at least one uppercase letter.",
                         checkdigit: "Your password must contain at least one digit."
-                    },
-                    password_confirmation: {
-                        required:  "Confirm password is required",
-                        equalTo: "Password and confirm password should same",
-                    },
+                    },                    
                     privacyPolicy:{
                         required:  "Checked Provacy policy checkbox",
 
@@ -385,12 +300,19 @@
              },
 
             submitHandler: function(form){
-               var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/register";               
+                const requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/register";               
                   $.ajaxSetup({
                      headers: {
                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                      }
                   });
+                  const countryCode = $(".iti__selected-flag").attr('title');
+                  const code = countryCode.split(':');
+
+                  const cod = code[1];
+
+                  const formData = $('#regForm').serialize() + '&countryCode=' + cod;
+                  //console.log(data);
                   $('#registerFormBtn').html('Please Wait...');
                   $("#registerFormBtn"). attr("disabled", true);
                   $( "#alert-msg" ).empty();
@@ -398,12 +320,12 @@
             $.ajax({
                url: requestUrl,
                     type: "POST",
-                    data: $('#regForm').serialize(),
+                    data: formData,
                     success: function( response ) {
                       //console.log(response);
-                    var result = response.message;
-                    var error = response.error;
-                    var success = response.success;
+                      const result = response.message;
+                      const error = response.error;
+                      const success = response.success;
                     if(success == true){
                     setTimeout(function() {
                         $('#registerFormBtn').html('Submit');
@@ -434,8 +356,8 @@
         });
          
         
-    </script>
-     
+    </script>     
+
    </body>
    <!-- END: Body-->
 </html>
