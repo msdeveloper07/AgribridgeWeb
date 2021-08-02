@@ -73,7 +73,16 @@
                                 <div class="text-center"><img src="{{asset('assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
                                 <h2 class="card-title fw-bold mb-1 text-center">Login to Agribridge</h2>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
-
+                                @if (session('status'))
+                                    <div class="alert alert-success">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                                @if (session('warning'))
+                                    <div class="alert alert-warning">
+                                        {{ session('warning') }}
+                                    </div>
+                                @endif
                                 <form method="POST" id="userLogin" class="auth-login-form mt-2" action="">
 
                                 @csrf
@@ -90,10 +99,9 @@
                                     <div class="d-flex justify-content-between">
                                         <label class="form-label" for="login-password">{{ __('Password') }}</label>
 
-                                            <a href=""><small>
+                                            <a href="{{route('resetpassword')}}"><small>
                                             {{ __('Forgot Your Password?') }}</small>
-                                            </a>
-                                        
+                                            </a>                                  
 
 
                                     </div>
@@ -122,6 +130,7 @@
                                 {{ __('Sign in') }}
                                 </button>
                                 </form>
+                                <p id="alert-msg" class="text-center mt-2"> </p>
                                 <p class="text-center mt-2"><span>New on our platform?</span><a href="{{route('register')}}"><span>&nbsp;Create an account</span></a></p>
                                 <div class="divider my-2">
                                     <div class="divider-text">or</div>
@@ -161,8 +170,9 @@
     @include('frontend.partials._footer_script')
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
       <script>   
-         var requestUrl = "/api/v1/authenticate'}}"; 
+         var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/login"; 
          $('#userLogin').on('submit',function(e){
+          
             e.preventDefault();
             $.ajaxSetup({
                 headers: {
@@ -171,17 +181,46 @@
             });
             $('#loginBtn').html('Please Wait...');
             $("#loginBtn"). attr("disabled", true);
+            $( "#alert-msg" ).empty();
             $.ajax({
                     url: requestUrl,
                     type: "POST",
                     data: $('#userLogin').serialize(),
-                    success: function( response ) {
+                    success: function( response ){ 
                     var result = response.message;
-                    $('#loginBtn').html('Submit');
-                    $("#loginBtn"). attr("disabled", false);
-                    document.getElementById("loginBtn").reset(); 
+                    var error = response.error;
+                    var success = response.success;                
+
+                    if(success == true){
+                    setTimeout(function() {
+                       $('#loginBtn').html('Submit');
+                       $("#loginBtn"). attr("disabled", false);
+                        $('#alert-msg').html(result);
+                    }, 5000);
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
+                    document.getElementById("userLogin").reset(); 
+                    
+                    
+                }else{
+
+                    setTimeout(function() {
+                        $('#loginBtn').html('Submit');
+                        $("#loginBtn"). attr("disabled", false);
+                        $('#alert-msg').html(error);
+                    }, 5000);
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
+                }
+                
                 }
             });
+
+
         });      
       </script>
 
