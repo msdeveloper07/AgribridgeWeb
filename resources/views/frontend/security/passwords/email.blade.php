@@ -55,7 +55,7 @@
                                         {{ session('status') }}
                                     </div>
                                 @endif
-                                <form class="auth-forgot-password-form mt-2" action="" method="POST">
+                                <form class="auth-forgot-password-form mt-2" id="userForgotPassword" action="" method="POST">
                                     @csrf
                                     <div class="mb-1">
                                     <label class="form-label" for="email">{{ __('E-Mail Address') }}</label>
@@ -67,8 +67,10 @@
                                     </span>
                                     @enderror
                                     </div>
-                                    <button class="btn btn-primary w-100" tabindex="2" type="submit">Send reset link</button>
+                                    <button class="btn btn-primary w-100" id="resetPass" tabindex="2" type="submit">Send reset link</button>
                                     </form>
+                                    <p id="alert-msg" class="text-center mt-2"> </p>
+
                                 <p class="text-center mt-2"><a href="{{route('login')}}"><i data-feather="chevron-left"></i> Back to login</a></p>
                             </div>
                         </div>
@@ -98,6 +100,63 @@
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+      <script>   
+         var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/reset-password"; 
+         $('#userForgotPassword').on('submit',function(e){
+          
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#resetPass').html('Please Wait...');
+            $("#resetPass"). attr("disabled", true);
+            $( "#alert-msg" ).empty();
+            $.ajax({
+                    url: requestUrl,
+                    type: "POST",
+                    data: $('#userForgotPassword').serialize(),
+                    success: function( response ){ 
+                    var result = response.message;
+                    var error = response.error;
+                    var success = response.success;                
+
+                    if(success == true){
+                    setTimeout(function() {
+                       $('#resetPass').html('Submit');
+                       $("#resetPass"). attr("disabled", false);
+                        $('#alert-msg').html(result);
+                    }, 5000);
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
+                    document.getElementById("userForgotPassword").reset(); 
+                    
+                    
+                }else{
+
+                    setTimeout(function() {
+                        $('#resetPass').html('Submit');
+                        $("#resetPass"). attr("disabled", false);
+                        $('#alert-msg').html(error);
+                    }, 5000);
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
+                }
+                
+                }
+            });
+
+
+        });      
+      </script>
+
+
   
 </body>
 <!-- END: Body-->
