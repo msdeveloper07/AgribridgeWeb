@@ -9,7 +9,7 @@ Route::view('/login', 'frontend.security.login', ["title" => 'Agribridge - Login
 
 Route::view('/reset-password', 'frontend.security.passwords.email', ["title" => 'Agribridge - Forgot password'])->name('resetpassword');
 
-Route::view('/change-password', 'frontend.security.passwords.reset', ["title" => 'Agribridge - Change password'])->name('changepassword');
+Route::view('/change-password/{token}', 'frontend.security.passwords.reset', ["title" => 'Agribridge - Change password'])->name('changepassword');
 
 
 // Organizition

@@ -51,9 +51,10 @@
                                 <h2 class="card-title fw-bold mb-1 text-center">Reset Password</h2>
                                 <p class="card-text mb-2 text-center">Your new password must be different from previously used passwords</p>
                         
-                        <form class="auth-reset-password-form mt-2" action="" method="POST">
-                             @csrf
-                             <input type="hidden" name="token" value="">
+                        <form class="auth-reset-password-form mt-2" id="resetPassword" action="" method="POST">
+                             @csrf 
+                             <input type="hidden" name="token" value="{{ $token }}">
+                                                         
                             <div class="mb-1">
                                <div class="d-flex justify-content-between">
                                    <label class="form-label" for="email">{{ __('E-Mail Address') }}</label>
@@ -99,9 +100,10 @@
                                     <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100" tabindex="3">{{ __('Set New Password') }}</button>
+                            <button type="submit" class="btn btn-primary w-100" id="newPassword" tabindex="3">{{ __('Set New Password') }}</button>
                         </form>
-                        <p class="text-center mt-2"><a href="page-auth-login-v2.html"><i data-feather="chevron-left"></i> Back to login</a></p>
+                        <p id="alert-msg" class="text-center mt-2"> </p>
+                        <p class="text-center mt-2"><a href="{{route('login')}}"><i data-feather="chevron-left"></i> Back to login</a></p>
                             </div>
                         </div>
                         <!-- /Reset password-->
@@ -130,7 +132,62 @@
     <!-- END: Page JS-->
 
     @include('frontend.partials._footer_script')
-  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+      <script>   
+         var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/change-password"; 
+         $('#resetPassword').on('submit',function(e){
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#newPassword').html('Please Wait...');
+            $("#newPassword"). attr("disabled", true);
+            $( "#alert-msg" ).empty();
+            $.ajax({
+                    url: requestUrl,
+                    type: "POST",
+                    data: $('#resetPassword').serialize(),
+                    success: function( response ){ 
+                    console.log(response);
+                    var result = response.message;
+                    var error = response.error;
+                    var success = response.success;                
+
+                    if(success == true){
+                    setTimeout(function() {
+                       $('#newPassword').html('Submit');
+                       $("#newPassword"). attr("disabled", false);
+                        $('#alert-msg').html(result);
+                    }, 5000);
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
+                    document.getElementById("resetPassword").reset(); 
+                    
+                    
+                }else{
+
+                    setTimeout(function() {
+                        $('#newPassword').html('Submit');
+                        $("#newPassword"). attr("disabled", false);
+                        $('#alert-msg').html(error);
+                    }, 5000);
+
+                    setTimeout(function() {
+                        $( "#alert-msg" ).empty();
+                    }, 10000);
+                   
+                }
+                
+                }
+            });
+
+
+        });      
+      </script>
 </body>
 <!-- END: Body-->
 
