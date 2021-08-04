@@ -331,6 +331,8 @@
 
                     setTimeout(function() {
                         $( "#alert-msg" ).empty();
+                        window.location.href = "/login";
+
                     }, 10000);
                     document.getElementById("regForm").reset(); 
                 }else{
