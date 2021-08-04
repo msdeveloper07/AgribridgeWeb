@@ -31,21 +31,18 @@
          <div class="content-wrapper">
             <div class="content-header row"></div>
             <div class="content-body">
-               <div class="auth-wrapper auth-v2">
-                  <div class="auth-inner row m-0">
-                     <!-- Left Text-->
-                     <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-                        <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="{{asset('assets/app-assets/images/pages/login-v2.svg')}}" alt="Register" /></div>
-                     </div>
-                     <!-- /Left Text-->
+               <div class="auth-wrapper register-wrapper">
+                  <div class="auth-inner justify-content-end row m-0">
+                    
                      <!-- Register-->
-                     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
-                        <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                           <h2 class="card-title fw-bold mb-1 text-center">Register to Agribridge</h2>
+                     <div class="d-flex align-items-center auth-bg">
+                        <div class="col-12 mx-auto">
+                        <div class="text-center logo-circle"><img src="{{asset('assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
+                           <h2 class="card-title text-center">Register to <span>Agribridge</span></h2>
                            <!-- <p class="card-text mb-2">Make your app management easy and fun!</p> -->
-                           <div class="text-center"><img src="{{asset('assets/app-assets/images/logo/logo-v1.svg')}}" width="140" class="img-fluid mx-auto my-2" alt=""></div>
+                          
                          
-                        <form class="auth-register-form mt-2"   id="regForm" method="post" action="#">
+                        <form class="auth-register-form auth-login-form mt-2"   id="regForm" method="post" action="#">
                             @csrf
                             <div class="mb-1">
                                 <label class="form-label" for="user_name">{{ __('Full Name') }}</label>
@@ -59,7 +56,7 @@
                                 </div>
                             <div class="mb-1">
                                  <label class="form-label" for="user_type">{{ __('User Type') }}</label>
-                                 <select class="form-select  @error('user_type') is-invalid @enderror" id="user_type" name="user_type" tabindex="2">
+                                 <select class="form-select form-control  @error('user_type') is-invalid @enderror" id="user_type" name="user_type" tabindex="2">
 
                                  <option selected value="" disabled>Select user type</option>
                                  <option value="Farmer Producer Organization">Farmer Producer Organization</option>
@@ -135,7 +132,7 @@
                            </div>
 
 
-                           <button type="submit" class="btn btn-primary w-100" id="registerFormBtn" tabindex="5">{{ __('Sign up')}}</button>
+                           <button type="submit" class="btn btn-border-warning w-100 waves-effect waves-float waves-light" id="registerFormBtn" tabindex="5">{{ __('Register to Agribridge')}}</button>
                                                       
                         </form>
                         <p id="alert-msg" class="text-center mt-2"> </p>
