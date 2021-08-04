@@ -10,7 +10,7 @@ Route::view('/login', 'frontend.security.login', ["title" => 'Agribridge - Login
 Route::view('/reset-password', 'frontend.security.passwords.email', ["title" => 'Agribridge - Forgot password'])->name('resetpassword');
 
 Route::view('/change-password/{token}', 'frontend.security.passwords.reset', ["title" => 'Agribridge - Change password'])->name('changepassword');
-
+Route::view('/dashboard', 'frontend.security.dashboard', ["title" => 'Agribridge - Home']);
 
 // Organizition
 Route::view('/organizition-detail', 'frontend.organizition.organization_detail', ["title" => 'Agribridge - Organization'])->name("get_organization");

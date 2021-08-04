@@ -3,21 +3,29 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
    @section('insideHead')
    <!-- BEGIN: Vendor CSS-->
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/vendors.min.css')}}">
-   <!-- END: Vendor CSS-->
-   <!-- BEGIN: Theme CSS-->
-   <link rel="stylesheet" href="{{asset('assets/app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap-extended.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/colors.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/components.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/dark-layout.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/bordered-layout.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/semi-dark-layout.css')}}">
-   <!-- BEGIN: Page CSS-->
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/plugins/forms/form-validation.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/pages/page-auth.css')}}">
+ <!-- BEGIN: Vendor CSS-->
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/vendors.min.css')}}">
+
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css')}}">
+<!-- BEGIN: Theme CSS-->
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap-extended.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/colors.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/components.css')}}">
+
+
+<!-- BEGIN: Page CSS-->
+<link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
+
+<!-- END: Page CSS-->
+
+<!-- BEGIN: Custom CSS-->
+<link rel="stylesheet" type="text/css" href="{{asset('assets/assets/css/style.css')}}">
+<!-- END: Custom CSS-->
+
    <!-- END: Page CSS-->
    @endsection
    <!-- BEGIN: Head-->
@@ -280,9 +288,7 @@
         </ul>
     </div>
 </div>
-    <!-- END: Content-->
 
-    <!-- BEGIN: Vendor JS-->
    
     <!-- END: Page Vendor JS-->
 

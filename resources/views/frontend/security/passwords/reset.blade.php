@@ -53,6 +53,11 @@
                         
                         <form class="auth-reset-password-form mt-2" id="resetPassword" action="" method="POST">
                              @csrf 
+                             @php
+                             $r = $_SERVER['REQUEST_URI']; 
+                                $r = explode('/', $r);
+                                $token = $r[2];
+                            @endphp
                              <input type="hidden" name="token" value="{{ $token }}">
                                                          
                             <div class="mb-1">
@@ -134,8 +139,9 @@
     @include('frontend.partials._footer_script')
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
       <script>   
-         var requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/change-password"; 
+         const requestUrl = "http://localhost/riverbridgeVenturesapp/api/v1/change-password"; 
          $('#resetPassword').on('submit',function(e){
+             //console.log($('#resetPassword').serialize());
             e.preventDefault();
             $.ajaxSetup({
                 headers: {
@@ -149,19 +155,17 @@
                     url: requestUrl,
                     type: "POST",
                     data: $('#resetPassword').serialize(),
-                    success: function( response ){ 
-                    console.log(response);
-                    var result = response.message;
-                    var error = response.error;
-                    var success = response.success;                
-
+                    success: function( response ){                      
+                    const result = response.message;
+                    const error = response.error;
+                    const success = response.success;                
+                    //console.log(success);
                     if(success == true){
                     setTimeout(function() {
                        $('#newPassword').html('Submit');
                        $("#newPassword"). attr("disabled", false);
                         $('#alert-msg').html(result);
                     }, 5000);
-
                     setTimeout(function() {
                         $( "#alert-msg" ).empty();
                     }, 10000);
@@ -173,12 +177,13 @@
                     setTimeout(function() {
                         $('#newPassword').html('Submit');
                         $("#newPassword"). attr("disabled", false);
-                        $('#alert-msg').html(error);
+                        $('#alert-msg').html(result);
                     }, 5000);
 
                     setTimeout(function() {
                         $( "#alert-msg" ).empty();
                     }, 10000);
+                    
                    
                 }
                 
